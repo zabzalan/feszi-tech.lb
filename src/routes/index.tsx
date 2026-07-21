@@ -45,7 +45,7 @@ function HeroSection() {
         />
       </div>
 
-      <div className="container-page py-20 md:py-28 lg:py-36">
+      <div className="container-page py-16 md:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <div className="reveal inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-blue backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-slate-blue" />
