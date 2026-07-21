@@ -21,7 +21,7 @@ import { AnimatedCounter } from "@/components/animated-counter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import kofemImg from "@/assets/reference-kofem.jpg";
 import emersonAsset from "@/assets/emerson-partner.jpg.asset.json";
-import gyoriImg from "@/assets/partner-gyori.jpg";
+import gyoriAsset from "@/assets/partner-gyori-real.jpg.asset.json";
 import mondelezImg from "@/assets/partner-mondelez.jpg";
 import cbreImg from "@/assets/partner-cbre.jpg";
 
@@ -398,7 +398,7 @@ const keyPartners = [
     location: "8000 Székesfehérvár, Holland fasor 8.",
     scope:
       "Silók alpintechnikai takarítása, tetőjavítási és karbantartási munkák szigorú élelmiszeripari környezetben.",
-    image: gyoriImg,
+    image: gyoriAsset.url,
     icon: Building2,
   },
   {
