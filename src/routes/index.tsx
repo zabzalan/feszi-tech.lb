@@ -61,19 +61,7 @@ function HeroSection() {
         />
       </div>
 
-      <div className="container-page relative py-16 md:py-20 lg:py-24">
-        {/* Prémium négyzetháló a szöveg mögé */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -inset-x-5 md:-inset-x-8 inset-y-0 -z-10"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, color-mix(in oklab, var(--ice-blue) 28%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--ice-blue) 28%, transparent) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-            maskImage: "linear-gradient(to bottom, black 0%, transparent 85%)",
-          }}
-        />
-
+      <div className="container-page py-16 md:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <div className="reveal inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-blue backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-slate-blue" />
