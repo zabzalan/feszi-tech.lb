@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ArrowRight,
   MapPin,
@@ -15,6 +16,15 @@ import {
   Building2,
   Globe2,
   Factory,
+  Users,
+  Landmark,
+  Layers,
+  CalendarClock,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  Loader2,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
@@ -39,7 +49,11 @@ function Index() {
         <AboutSection />
         <ServicesSection />
         <ReferencesSection />
+        <WhyUsSection />
+        <ContactSection />
       </main>
+
+      <SiteFooter />
     </div>
   );
 }
