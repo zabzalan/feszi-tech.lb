@@ -45,18 +45,42 @@ function HeroSection() {
       {/* Decorative background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-crisp via-white to-white" />
+
+        {/* Premium grid — fades downward and outward */}
         <div
-          className="absolute inset-0 opacity-[0.35]"
+          className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(to right, color-mix(in oklab, var(--ice-blue) 40%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--ice-blue) 40%, transparent) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
+              "linear-gradient(to right, color-mix(in oklab, var(--slate-blue) 22%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--slate-blue) 22%, transparent) 1px, transparent 1px)",
+            backgroundSize: "96px 96px",
             maskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 80%)",
+              "linear-gradient(to bottom, black 0%, black 35%, transparent 85%), radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 75%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, black 0%, black 35%, transparent 85%), radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 75%)",
           }}
         />
+
+        {/* Subtle fine cross-grid for depth */}
+        <div
+          className="absolute inset-0 opacity-60"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, color-mix(in oklab, var(--ice-blue) 30%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--ice-blue) 30%, transparent) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+            maskImage:
+              "linear-gradient(to bottom, black 0%, transparent 55%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, black 0%, transparent 55%)",
+          }}
+        />
+
+        {/* Soft ambient glow */}
         <div
           className="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full blur-3xl opacity-40"
+          style={{ background: "radial-gradient(circle, var(--ice-blue), transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-40 -left-40 h-[420px] w-[420px] rounded-full blur-3xl opacity-25"
           style={{ background: "radial-gradient(circle, var(--ice-blue), transparent 70%)" }}
         />
       </div>
