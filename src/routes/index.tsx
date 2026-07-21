@@ -76,23 +76,6 @@ function HeroSection() {
             </a>
           </div>
 
-          {/* Trust strip */}
-          <div className="reveal reveal-delay-4 mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {[
-              { icon: ShieldCheck, label: "A+ bonitás" },
-              { icon: Wallet, label: "Nulla adótartozás" },
-              { icon: Users, label: "17 fős csapat" },
-              { icon: Building2, label: "Ipari + lakossági" },
-            ].map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-white/80 px-3 py-3 text-xs font-semibold text-navy backdrop-blur sm:text-sm"
-              >
-                <Icon className="h-4 w-4 shrink-0 text-slate-blue" />
-                <span>{label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
