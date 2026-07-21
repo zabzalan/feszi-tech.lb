@@ -174,6 +174,14 @@ function AboutSection() {
                 sub="Hosszú távú együttműködések"
                 span
               />
+              <StatCard
+                label="Nulla adótartozás"
+                sub="Tehermentes bankszámla, stabil pénzügyi háttér"
+              />
+              <StatCard
+                label="Ipari + lakossági"
+                sub="Családi házaktól ipari csarnokokig"
+              />
             </div>
           </div>
         </div>
@@ -190,7 +198,7 @@ function StatCard({
   large,
   span,
 }: {
-  value: number;
+  value?: number;
   suffix?: string;
   label: string;
   sub: string;
@@ -211,11 +219,22 @@ function StatCard({
             "radial-gradient(circle, color-mix(in oklab, var(--ice-blue) 55%, transparent), transparent 70%)",
         }}
       />
-      <div className="font-display text-5xl font-bold leading-none text-navy sm:text-6xl">
-        <AnimatedCounter end={value} suffix={suffix ?? ""} />
-      </div>
-      <div className="mt-3 text-sm font-semibold text-navy">{label}</div>
-      <div className="mt-1 text-xs text-muted-foreground">{sub}</div>
+      {value !== undefined ? (
+        <>
+          <div className="font-display text-5xl font-bold leading-none text-navy sm:text-6xl">
+            <AnimatedCounter end={value} suffix={suffix ?? ""} />
+          </div>
+          <div className="mt-3 text-sm font-semibold text-navy">{label}</div>
+          <div className="mt-1 text-xs text-muted-foreground">{sub}</div>
+        </>
+      ) : (
+        <>
+          <div className="font-display text-2xl font-bold leading-tight text-navy sm:text-3xl">
+            {label}
+          </div>
+          <div className="mt-3 text-xs text-muted-foreground">{sub}</div>
+        </>
+      )}
     </div>
   );
 }
