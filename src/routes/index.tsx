@@ -1,7 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Users, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  MapPin,
+  Zap,
+  Mountain,
+  Sparkles,
+  Wrench,
+  Hammer,
+  Truck,
+  BrickWall,
+  Home,
+  Paintbrush,
+  Droplets,
+  ShieldCheck,
+} from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/")({
   component: Index,
