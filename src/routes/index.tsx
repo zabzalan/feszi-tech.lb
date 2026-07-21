@@ -22,7 +22,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import kofemImg from "@/assets/reference-kofem.jpg";
 import emersonAsset from "@/assets/emerson-partner.jpg.asset.json";
 import gyoriAsset from "@/assets/partner-gyori-real.jpg.asset.json";
-import mondelezImg from "@/assets/partner-mondelez.jpg";
+import mondelezAsset from "@/assets/partner-mondelez.webp.asset.json";
 import cbreImg from "@/assets/partner-cbre.jpg";
 
 export const Route = createFileRoute("/")({
@@ -406,7 +406,7 @@ const keyPartners = [
     location: "Szlovákia, Kostolné Kračany",
     scope:
       "Nemzetközi megbízás keretében ipari gépek és silók alpintechnikai takarítása – határon átnyúló, kiszámítható kivitelezéssel.",
-    image: mondelezImg,
+    image: mondelezAsset.url,
     icon: Globe2,
   },
   {
