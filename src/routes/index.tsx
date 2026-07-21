@@ -383,3 +383,285 @@ function ServiceCard({
     </div>
   );
 }
+
+const keyPartners = [
+  {
+    name: "Emerson",
+    location: "8000 Székesfehérvár, Holland fasor 6.",
+    scope:
+      "Építőmesteri munkák, lakatos-, villanyszerelői, ipari villanyszerelői és gépészeti feladatok folyamatos ellátása.",
+    image: emersonImg,
+    icon: Factory,
+  },
+  {
+    name: "Győri Keksz Kft.",
+    location: "8000 Székesfehérvár, Holland fasor 8.",
+    scope:
+      "Silók alpintechnikai takarítása, tetőjavítási és karbantartási munkák szigorú élelmiszeripari környezetben.",
+    image: gyoriImg,
+    icon: Building2,
+  },
+  {
+    name: "Mondelez SR Production",
+    location: "Szlovákia, Kostolné Kračany",
+    scope:
+      "Nemzetközi megbízás keretében ipari gépek és silók alpintechnikai takarítása – határon átnyúló, kiszámítható kivitelezéssel.",
+    image: mondelezImg,
+    icon: Globe2,
+  },
+  {
+    name: "CBRE Hungary",
+    location: "Kereskedelmi ingatlanportfólió, Magyarország",
+    scope:
+      "Kereskedelmi ingatlankomplexumok műszaki és szerkezeti felülvizsgálata, szakértői jelentések készítése.",
+    image: cbreImg,
+    icon: Building2,
+  },
+];
+
+const oneOffProjects = [
+  {
+    client: "Beck and Pollitzer Hungary Kft.",
+    detail: "Hankook területén szennyvízkád betonozása.",
+  },
+  {
+    client: "Arconic",
+    detail: "Tetőszigetelés, betonjavítások, térkövezés.",
+  },
+  {
+    client: "Arconic",
+    detail: "Iroda és szociális helyiségek felújítása, ipari vízvezeték cseréje.",
+  },
+  {
+    client: "Arconic",
+    detail: "Ipari takarítás és villamos karbantartás – napi szinten.",
+  },
+  {
+    client: "Emerson",
+    detail: "Iroda és szociális blokk felújítása.",
+  },
+  {
+    client: "Emerson",
+    detail: "Tűzcsapcsere, szaniterek cseréje, PVC betápok kiépítése.",
+  },
+  {
+    client: "Howmet",
+    detail: "Műgyantázás, betonozás, csarnoki híddaruk állványozása.",
+  },
+  {
+    client: "Howmet",
+    detail: "Víztorony lépcső-pódium bontás-építés, útburkolati festések javítása.",
+  },
+  {
+    client: "Howmet",
+    detail:
+      "Villamos kompresszorok elektromos telepítése, VBF és VV mérések, jegyzőkönyvezés, EPH kiépítése.",
+  },
+  {
+    client: "Hydro",
+    detail: "Ipari takarítás és villamos karbantartás – napi szinten.",
+  },
+  {
+    client: "Hydro",
+    detail: "Világítások kiépítése, tetőszigetelés, betonjavítások, térkövezés.",
+  },
+];
+
+function ReferencesSection() {
+  return (
+    <section id="referenciak" className="relative py-16 md:py-20">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, color-mix(in oklab, var(--ice-blue) 12%, transparent), transparent)",
+        }}
+      />
+      <div className="container-page">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
+            <span className="h-px w-8 bg-slate-blue" />
+            Referenciák & Együttműködések
+          </div>
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-[2.75rem]">
+            Ipari óriások bizalma, több mint egy évtizede.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Állandó szerződött partnereink és eseti megbízóink között egyaránt
+            megtalálhatók a hazai és nemzetközi ipar meghatározó szereplői.
+          </p>
+        </div>
+
+        {/* Layer 1 – Köfém hero */}
+        <KofemHighlight />
+
+        {/* Layer 2 – Key partners */}
+        <div className="mt-16">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
+                Kiemelt állandó szerződött partnereink
+              </div>
+              <h3 className="mt-2 text-2xl font-bold leading-tight text-navy sm:text-3xl">
+                Hosszú távú, szerződéses együttműködések.
+              </h3>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {keyPartners.map((p) => (
+              <PartnerCard key={p.name} {...p} />
+            ))}
+          </div>
+        </div>
+
+        {/* Layer 3 – One-off projects */}
+        <div className="mt-16">
+          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
+            Néhány eseti megbízásunk
+          </div>
+          <h3 className="mt-2 text-2xl font-bold leading-tight text-navy sm:text-3xl">
+            Válogatás elvégzett projektjeinkből.
+          </h3>
+
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {oneOffProjects.map((p, i) => (
+              <li
+                key={i}
+                className="group flex items-start gap-3 rounded-xl border border-border bg-white/70 p-4 transition-colors hover:border-slate-blue/60 hover:bg-white"
+              >
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-blue" />
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-navy">{p.client}</div>
+                  <div className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                    {p.detail}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function KofemHighlight() {
+  return (
+    <div className="relative mt-12 overflow-hidden rounded-3xl border border-border bg-white shadow-navy-md">
+      <div className="grid gap-0 lg:grid-cols-2">
+        <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[420px]">
+          <img
+            src={kofemImg}
+            alt="Ipari park hőszigeteléssel és silókkal – Köfém együttműködés illusztráció"
+            loading="lazy"
+            width={1600}
+            height={1000}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, color-mix(in oklab, var(--navy) 55%, transparent), transparent 55%)",
+            }}
+          />
+          <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-navy backdrop-blur">
+            <ShieldCheck className="h-3.5 w-3.5 text-slate-blue" />
+            Kiemelt referencia
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
+          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
+            Köfém Ipari Park · Székesfehérvár
+          </div>
+          <h3 className="mt-3 text-2xl font-bold leading-tight text-navy sm:text-3xl md:text-[2rem]">
+            Fennállásunk óta állandó, szerződött partnere a székesfehérvári
+            Könnyűfémmű ipari parknak.
+          </h3>
+          <p className="mt-5 text-[15px] leading-relaxed text-foreground/80 sm:text-base">
+            A Köfém területén folyamatosan látjuk el az{" "}
+            <strong className="text-navy">
+              építészeti, villanyszerelési és ipari takarítási feladatokat
+            </strong>
+            . Ez a több mint egy évtizede tartó együttműködés önmagában
+            bizonyítja, hogy csapatunk megfelel a{" "}
+            <strong className="text-navy">
+              legszigorúbb ipari biztonsági és minőségi elvárásoknak
+            </strong>{" "}
+            is – nap mint nap, egy erősen szabályozott üzemi környezetben.
+          </p>
+
+          <div className="mt-7 grid gap-3 sm:grid-cols-3">
+            <MiniFact label="Folyamatos" sub="szerződéses jelenlét" />
+            <MiniFact label="Ipari" sub="biztonsági protokollok" />
+            <MiniFact label="Multi-szakág" sub="építés · villany · takarítás" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MiniFact({ label, sub }: { label: string; sub: string }) {
+  return (
+    <div className="rounded-xl border border-border bg-secondary/60 px-4 py-3">
+      <div className="text-sm font-bold text-navy">{label}</div>
+      <div className="mt-0.5 text-[11px] uppercase tracking-wider text-muted-foreground">
+        {sub}
+      </div>
+    </div>
+  );
+}
+
+function PartnerCard({
+  name,
+  location,
+  scope,
+  image,
+  icon: Icon,
+}: {
+  name: string;
+  location: string;
+  scope: string;
+  image: string;
+  icon: React.ElementType;
+}) {
+  return (
+    <div className="card-lift group flex flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-navy-sm">
+      <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+        <img
+          src={image}
+          alt={`${name} – együttműködés illusztráció`}
+          loading="lazy"
+          width={1000}
+          height={700}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, color-mix(in oklab, var(--navy) 45%, transparent), transparent 60%)",
+          }}
+        />
+        <div className="absolute left-3 top-3 grid h-9 w-9 place-items-center rounded-lg bg-white/90 text-navy backdrop-blur">
+          <Icon className="h-4 w-4" />
+        </div>
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <div className="text-base font-bold leading-snug text-navy">{name}</div>
+        <div className="mt-1 text-[11px] font-medium uppercase tracking-wider text-slate-blue">
+          {location}
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          {scope}
+        </p>
+      </div>
+    </div>
+  );
+}
