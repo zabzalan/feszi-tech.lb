@@ -693,7 +693,7 @@ const whyUsItems = [
   },
   {
     icon: Landmark,
-    title: "A+ bonitás, stabil pénzügyi háttér",
+    title: "Stabil pénzügyi háttér",
     description:
       "Tehermentes bankszámla, nulla adótartozás. Nagyprojektek anyagköltségét is előre finanszírozzuk.",
   },
