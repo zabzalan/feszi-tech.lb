@@ -553,8 +553,8 @@ function KofemHighlight() {
       <div className="grid gap-0 lg:grid-cols-2">
         <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[420px]">
           <img
-            src={kofemImg}
-            alt="Ipari park hőszigeteléssel és silókkal – Köfém együttműködés illusztráció"
+            src={kofemAsset.url}
+            alt="Alcoa-Köfém székesfehérvári ipari park épülete – állandó partnerünk"
             loading="lazy"
             width={1600}
             height={1000}
