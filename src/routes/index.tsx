@@ -30,6 +30,7 @@ function Index() {
       <main className="pt-20">
         <HeroSection />
         <AboutSection />
+        <ServicesSection />
       </main>
     </div>
   );
