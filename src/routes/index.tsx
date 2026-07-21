@@ -84,7 +84,7 @@ function HeroSection() {
 
 function AboutSection() {
   return (
-    <section id="rolunk" className="relative py-20 md:py-28">
+    <section id="rolunk" className="relative py-12 md:py-16">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           {/* Left: Copy */}
