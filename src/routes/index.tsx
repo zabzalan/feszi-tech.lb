@@ -10,13 +10,20 @@ import {
   Truck,
   BrickWall,
   Home,
-  Paintbrush,
-  Droplets,
   ShieldCheck,
+  CheckCircle2,
+  Building2,
+  Globe2,
+  Factory,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import kofemImg from "@/assets/reference-kofem.jpg";
+import emersonImg from "@/assets/partner-emerson.jpg";
+import gyoriImg from "@/assets/partner-gyori.jpg";
+import mondelezImg from "@/assets/partner-mondelez.jpg";
+import cbreImg from "@/assets/partner-cbre.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -31,6 +38,7 @@ function Index() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <ReferencesSection />
       </main>
     </div>
   );
