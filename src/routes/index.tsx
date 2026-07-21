@@ -679,3 +679,535 @@ function PartnerCard({
     </div>
   );
 }
+
+/* ============================================================
+   6) WHY US
+   ============================================================ */
+
+const whyUsItems = [
+  {
+    icon: Users,
+    title: "Saját, 17 fős szakembergárda",
+    description:
+      "Bejelentett, képzett, állandó csapat – nem alkalmi alvállalkozók. Egyenletes minőség, kiszámítható ütemezés.",
+  },
+  {
+    icon: Landmark,
+    title: "A+ bonitás, stabil pénzügyi háttér",
+    description:
+      "Tehermentes bankszámla, nulla adótartozás. Nagyprojektek anyagköltségét is előre finanszírozzuk.",
+  },
+  {
+    icon: Layers,
+    title: "Ipari és lakossági szakértelem",
+    description:
+      "Egy csarnok komplex kivitelezésétől egy családi ház felújításáig – ugyanaz a mérnöki precizitás, egy kézből.",
+  },
+  {
+    icon: CalendarClock,
+    title: "2014 óta megbízható partner",
+    description:
+      "Több mint egy évtizedes folyamatos működés, hosszú távú ipari és lakossági együttműködésekkel a hátunk mögött.",
+  },
+];
+
+function WhyUsSection() {
+  return (
+    <section id="miert-minket" className="relative py-16 md:py-20">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, color-mix(in oklab, var(--ice-blue) 10%, transparent), transparent)",
+        }}
+      />
+      <div className="container-page">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
+            <span className="h-px w-8 bg-slate-blue" />
+            Miért minket
+          </div>
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-[2.75rem]">
+            Négy ok, amiért a partnereink maradnak.
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {whyUsItems.map((item) => (
+            <div
+              key={item.title}
+              className="card-lift group rounded-2xl border border-border bg-white p-6 shadow-navy-sm"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-xl bg-navy text-white shadow-navy-sm">
+                <item.icon className="h-6 w-6" />
+              </div>
+              <h3 className="mt-5 text-base font-bold leading-snug text-navy">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   7) CONTACT
+   ============================================================ */
+
+type FormState = {
+  name: string;
+  email: string;
+  phone: string;
+  interest: string;
+  message: string;
+};
+
+const initialForm: FormState = {
+  name: "",
+  email: "",
+  phone: "",
+  interest: "",
+  message: "",
+};
+
+function ContactSection() {
+  const [form, setForm] = useState<FormState>(initialForm);
+  const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  function validate(f: FormState) {
+    const e: Partial<Record<keyof FormState, string>> = {};
+    if (!f.name.trim() || f.name.trim().length < 2) e.name = "Adja meg a nevét.";
+    if (f.name.length > 100) e.name = "A név túl hosszú.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim()))
+      e.email = "Adjon meg egy érvényes e-mail címet.";
+    if (f.email.length > 200) e.email = "Az e-mail cím túl hosszú.";
+    if (f.phone && f.phone.length > 40) e.phone = "A telefonszám túl hosszú.";
+    if (!f.message.trim() || f.message.trim().length < 10)
+      e.message = "Írjon néhány mondatot a projektről (min. 10 karakter).";
+    if (f.message.length > 2000) e.message = "Az üzenet túl hosszú (max. 2000 karakter).";
+    return e;
+  }
+
+  function handleSubmit(ev: React.FormEvent) {
+    ev.preventDefault();
+    const e = validate(form);
+    setErrors(e);
+    if (Object.keys(e).length > 0) return;
+
+    setSubmitting(true);
+    const subject = `Ajánlatkérés – ${form.name}`;
+    const body = [
+      `Név: ${form.name}`,
+      `E-mail: ${form.email}`,
+      `Telefon: ${form.phone || "-"}`,
+      `Érdeklődés: ${form.interest || "-"}`,
+      "",
+      "Üzenet:",
+      form.message,
+    ].join("\n");
+    const mailto = `mailto:zabzalan@gmail.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    setTimeout(() => {
+      setSubmitting(false);
+      setSubmitted(true);
+      setForm(initialForm);
+    }, 600);
+  }
+
+  function update<K extends keyof FormState>(key: K, value: FormState[K]) {
+    setForm((f) => ({ ...f, [key]: value }));
+    if (errors[key]) setErrors((e) => ({ ...e, [key]: undefined }));
+  }
+
+  return (
+    <section id="kapcsolat" className="relative py-16 md:py-20">
+      <div className="container-page">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
+            <span className="h-px w-8 bg-slate-blue" />
+            Kapcsolat
+          </div>
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-[2.75rem]">
+            Kérjen ajánlatot – rövid határidőn belül válaszolunk.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Írja le néhány mondatban, mire lenne szüksége. Ipari és lakossági
+            projektek esetén egyaránt személyes ügyintézővel dolgozunk.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1.15fr_1fr]">
+          {/* Form */}
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="rounded-2xl border border-border bg-white p-6 shadow-navy-sm sm:p-8"
+          >
+            {submitted && (
+              <div className="mb-6 flex items-start gap-3 rounded-xl border border-slate-blue/40 bg-secondary/60 p-4 text-sm text-navy">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-slate-blue" />
+                <div>
+                  <div className="font-semibold">Köszönjük a megkeresést!</div>
+                  <div className="mt-1 text-muted-foreground">
+                    Az üzenetét az alapértelmezett levelezőprogramjában
+                    megnyitottuk. Kérjük, küldje el – hamarosan válaszolunk.
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field label="Név" error={errors.name} required>
+                <input
+                  type="text"
+                  value={form.name}
+                  onChange={(e) => update("name", e.target.value)}
+                  maxLength={100}
+                  autoComplete="name"
+                  className={inputClass(!!errors.name)}
+                  placeholder="Kovács János"
+                />
+              </Field>
+              <Field label="E-mail" error={errors.email} required>
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => update("email", e.target.value)}
+                  maxLength={200}
+                  autoComplete="email"
+                  className={inputClass(!!errors.email)}
+                  placeholder="pelda@email.hu"
+                />
+              </Field>
+              <Field label="Telefonszám" error={errors.phone}>
+                <input
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => update("phone", e.target.value)}
+                  maxLength={40}
+                  autoComplete="tel"
+                  className={inputClass(!!errors.phone)}
+                  placeholder="+36 30 123 4567"
+                />
+              </Field>
+              <Field label="Milyen szolgáltatás érdekli?">
+                <select
+                  value={form.interest}
+                  onChange={(e) => update("interest", e.target.value)}
+                  className={inputClass(false)}
+                >
+                  <option value="">Válasszon…</option>
+                  <option value="Ipari szolgáltatások & üzemeltetés">
+                    Ipari szolgáltatások & üzemeltetés
+                  </option>
+                  <option value="Generálkivitelezés & építőmesteri munkák">
+                    Generálkivitelezés & építőmesteri munkák
+                  </option>
+                  <option value="Szigetelés / tetőjavítás">
+                    Szigetelés / tetőjavítás
+                  </option>
+                  <option value="Alpintechnikai munkák">
+                    Alpintechnikai munkák
+                  </option>
+                  <option value="Egyéb">Egyéb</option>
+                </select>
+              </Field>
+            </div>
+
+            <div className="mt-5">
+              <Field label="Üzenet" error={errors.message} required>
+                <textarea
+                  value={form.message}
+                  onChange={(e) => update("message", e.target.value)}
+                  maxLength={2000}
+                  rows={5}
+                  className={inputClass(!!errors.message) + " resize-y"}
+                  placeholder="Röviden a projektről: helyszín, terület, határidő…"
+                />
+              </Field>
+            </div>
+
+            <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-xs text-muted-foreground">
+                Adatait kizárólag a megkeresés megválaszolására használjuk.
+              </p>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="btn-primary w-full sm:w-auto"
+              >
+                {submitting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Küldés…
+                  </>
+                ) : (
+                  <>
+                    Ajánlatot kérek
+                    <Send className="h-4 w-4" />
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+
+          {/* Contact info + map */}
+          <div className="flex flex-col gap-6">
+            <div className="rounded-2xl border border-border bg-white p-6 shadow-navy-sm sm:p-8">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
+                Elérhetőségeink
+              </div>
+              <div className="mt-5 space-y-4 text-sm">
+                <InfoRow icon={MapPin} label="Székhely">
+                  8000 Székesfehérvár, Forgó utca 13.
+                </InfoRow>
+                <InfoRow icon={Phone} label="Telefon">
+                  <a
+                    href="tel:+36301231234"
+                    className="font-semibold text-navy hover:text-slate-blue"
+                  >
+                    +36 30 123 1234
+                  </a>
+                </InfoRow>
+                <InfoRow icon={Mail} label="E-mail">
+                  <a
+                    href="mailto:zabzalan@gmail.com"
+                    className="font-semibold text-navy hover:text-slate-blue"
+                  >
+                    zabzalan@gmail.com
+                  </a>
+                </InfoRow>
+                <InfoRow icon={Clock} label="Elérhetőség">
+                  Hétfő – Péntek · 7:00 – 17:00
+                  <div className="mt-0.5 text-xs text-muted-foreground">
+                    Sürgős ipari megkereséseket hétvégén is fogadunk.
+                  </div>
+                </InfoRow>
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-navy-sm">
+              <iframe
+                title="Fehérvári Szigeteléstechnikai Kft. – székhely térkép"
+                src="https://www.google.com/maps?q=8000%20Sz%C3%A9kesfeh%C3%A9rv%C3%A1r%2C%20Forg%C3%B3%20utca%2013.&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block h-64 w-full border-0 sm:h-72"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function inputClass(hasError: boolean) {
+  return [
+    "w-full rounded-xl border bg-white px-4 py-3 text-sm text-navy shadow-none transition-colors",
+    "placeholder:text-muted-foreground",
+    "focus:outline-none focus:ring-2 focus:ring-slate-blue/40",
+    hasError
+      ? "border-destructive focus:border-destructive"
+      : "border-border focus:border-slate-blue",
+  ].join(" ");
+}
+
+function Field({
+  label,
+  error,
+  required,
+  children,
+}: {
+  label: string;
+  error?: string;
+  required?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-navy">
+        {label}
+        {required && <span className="ml-0.5 text-destructive">*</span>}
+      </span>
+      {children}
+      {error && (
+        <span className="mt-1 block text-xs text-destructive">{error}</span>
+      )}
+    </label>
+  );
+}
+
+function InfoRow({
+  icon: Icon,
+  label,
+  children,
+}: {
+  icon: React.ElementType;
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex items-start gap-3">
+      <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-secondary text-slate-blue">
+        <Icon className="h-4 w-4" />
+      </div>
+      <div className="min-w-0">
+        <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+          {label}
+        </div>
+        <div className="mt-0.5 text-sm text-foreground">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   8) FOOTER
+   ============================================================ */
+
+function SiteFooter() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="relative bg-navy text-white">
+      <div className="container-page py-14">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          {/* Brand + company */}
+          <div>
+            <div className="flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-lg bg-white text-navy font-display text-lg font-bold">
+                F
+              </div>
+              <div className="leading-tight">
+                <div className="font-display text-base font-bold">
+                  Fehérvári Szigeteléstechnikai Kft.
+                </div>
+                <div className="text-[11px] uppercase tracking-wider text-ice-blue">
+                  Ipari precizitás, otthoni igényesség
+                </div>
+              </div>
+            </div>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-ice-blue/90">
+              2014 óta végzünk szigeteléstechnikai és szakipari kivitelezéseket
+              saját, 17 fős gárdával – Székesfehérvárról, Fejér megyében,
+              országosan és nemzetközi projekteken egyaránt.
+            </p>
+          </div>
+
+          {/* Quick nav */}
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-ice-blue">
+              Oldaltérkép
+            </div>
+            <ul className="mt-4 space-y-2 text-sm">
+              <FooterLink href="#fooldal">Főoldal</FooterLink>
+              <FooterLink href="#rolunk">Rólunk</FooterLink>
+              <FooterLink href="#szolgaltatasok">Szolgáltatások</FooterLink>
+              <FooterLink href="#referenciak">Referenciák</FooterLink>
+              <FooterLink href="#miert-minket">Miért minket</FooterLink>
+              <FooterLink href="#kapcsolat">Kapcsolat</FooterLink>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-ice-blue">
+              Kapcsolat
+            </div>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-ice-blue" />
+                <span>8000 Székesfehérvár,<br />Forgó utca 13.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-ice-blue" />
+                <a href="tel:+36301231234" className="hover:text-white">
+                  +36 30 123 1234
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-ice-blue" />
+                <a href="mailto:zabzalan@gmail.com" className="hover:text-white break-all">
+                  zabzalan@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company data */}
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-ice-blue">
+              Cégadatok
+            </div>
+            <ul className="mt-4 space-y-2 text-sm text-ice-blue/90">
+              <li>
+                <span className="text-white/70">Cégjegyzékszám:</span>
+                <br />
+                <span className="font-semibold text-white">07-09-024525</span>
+              </li>
+              <li>
+                <span className="text-white/70">Adószám:</span>
+                <br />
+                <span className="font-semibold text-white">24986625-2-07</span>
+              </li>
+              <li>
+                <span className="text-white/70">Alapítva:</span>{" "}
+                <span className="font-semibold text-white">2014. 03. 18.</span>
+              </li>
+              <li>
+                <span className="text-white/70">TEÁOR:</span>{" "}
+                <span className="font-semibold text-white">4399</span> – egyéb
+                speciális szaképítés
+              </li>
+              <li>
+                <span className="text-white/70">Ügyvezetők:</span>
+                <br />
+                <span className="font-semibold text-white">
+                  Auth István László, Varga Zsóka
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-ice-blue/80 sm:flex-row sm:items-center">
+          <div>
+            © {year} Fehérvári Szigeteléstechnikai Kft. — Minden jog fenntartva.
+          </div>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a href="#impresszum" className="hover:text-white">
+              Impresszum
+            </a>
+            <a href="#adatkezeles" className="hover:text-white">
+              Adatkezelési tájékoztató
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <li>
+      <a
+        href={href}
+        className="text-ice-blue/90 transition-colors hover:text-white"
+      >
+        {children}
+      </a>
+    </li>
+  );
+}
+
