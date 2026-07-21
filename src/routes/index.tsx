@@ -20,7 +20,7 @@ import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import kofemImg from "@/assets/reference-kofem.jpg";
-import emersonImg from "@/assets/partner-emerson.jpg";
+import emersonAsset from "@/assets/emerson-partner.jpg.asset.json";
 import gyoriImg from "@/assets/partner-gyori.jpg";
 import mondelezImg from "@/assets/partner-mondelez.jpg";
 import cbreImg from "@/assets/partner-cbre.jpg";
@@ -390,7 +390,7 @@ const keyPartners = [
     location: "8000 Székesfehérvár, Holland fasor 6.",
     scope:
       "Építőmesteri munkák, lakatos-, villanyszerelői, ipari villanyszerelői és gépészeti feladatok folyamatos ellátása.",
-    image: emersonImg,
+    image: emersonAsset.url,
     icon: Factory,
   },
   {
