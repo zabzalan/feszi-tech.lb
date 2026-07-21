@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck, Users, Building2, Wallet, MapPin } from "lucide-react";
+import { ArrowRight, Users, MapPin } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
 
@@ -45,7 +45,7 @@ function HeroSection() {
         />
       </div>
 
-      <div className="container-page py-20 md:py-28 lg:py-36">
+      <div className="container-page py-16 md:py-20 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <div className="reveal inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-blue backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-slate-blue" />
@@ -76,23 +76,6 @@ function HeroSection() {
             </a>
           </div>
 
-          {/* Trust strip */}
-          <div className="reveal reveal-delay-4 mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {[
-              { icon: ShieldCheck, label: "A+ bonitás" },
-              { icon: Wallet, label: "Nulla adótartozás" },
-              { icon: Users, label: "17 fős csapat" },
-              { icon: Building2, label: "Ipari + lakossági" },
-            ].map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-white/80 px-3 py-3 text-xs font-semibold text-navy backdrop-blur sm:text-sm"
-              >
-                <Icon className="h-4 w-4 shrink-0 text-slate-blue" />
-                <span>{label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -101,7 +84,7 @@ function HeroSection() {
 
 function AboutSection() {
   return (
-    <section id="rolunk" className="relative py-20 md:py-28">
+    <section id="rolunk" className="relative py-12 md:py-16">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           {/* Left: Copy */}
