@@ -33,7 +33,7 @@ import kofemAsset from "@/assets/kofem-alcoa.jpg.asset.json";
 import emersonAsset from "@/assets/emerson-partner.jpg.asset.json";
 import gyoriAsset from "@/assets/partner-gyori-real.jpg.asset.json";
 import mondelezAsset from "@/assets/partner-mondelez.webp.asset.json";
-import cbreImg from "@/assets/partner-cbre.jpg";
+import cbreAsset from "@/assets/partner-cbre.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -428,7 +428,7 @@ const keyPartners = [
     location: "Kereskedelmi ingatlanportfólió, Magyarország",
     scope:
       "Kereskedelmi ingatlankomplexumok műszaki és szerkezeti felülvizsgálata, szakértői jelentések készítése.",
-    image: cbreImg,
+    image: cbreAsset.url,
     icon: Building2,
   },
 ];
