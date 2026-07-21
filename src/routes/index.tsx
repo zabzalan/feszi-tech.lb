@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck, Users, Building2, Wallet, MapPin } from "lucide-react";
+import { ArrowRight, Users, MapPin } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
 
