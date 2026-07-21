@@ -1,7 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Users, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  MapPin,
+  Zap,
+  Mountain,
+  Sparkles,
+  Wrench,
+  Hammer,
+  Truck,
+  BrickWall,
+  Home,
+  Paintbrush,
+  Droplets,
+  ShieldCheck,
+} from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -15,6 +30,7 @@ function Index() {
       <main className="pt-20">
         <HeroSection />
         <AboutSection />
+        <ServicesSection />
       </main>
     </div>
   );
@@ -218,6 +234,144 @@ function StatCard({
           <div className="mt-3 text-xs text-muted-foreground">{sub}</div>
         </>
       )}
+    </div>
+  );
+}
+
+const industrialServices = [
+  {
+    icon: Zap,
+    title: "Ipari és speciális villanyszerelés",
+    description:
+      "Nagyfeszültségű hálózatok, gépsorok áramellátása és karbantartása ipari csarnokokban: biztonságos, szabványos megoldások üzemeltetői környezetre.",
+  },
+  {
+    icon: Mountain,
+    title: "Ipari alpintechnikai munkák",
+    description:
+      "Kötéltechnikával végzett magasban dolgozó szerkezeti javítások, tisztítások és ipari silótakarítás, ahol a hagyományos állványozás nem megoldható.",
+  },
+  {
+    icon: Sparkles,
+    title: "Épület- és ipari takarítás",
+    description:
+      "Gyártási környezetre, üzemcsarnokokra és nagy alapterületű ipari komplexumokra specializált takarítási protokollok rendszeres vagy alkalmi igényre.",
+  },
+  {
+    icon: Wrench,
+    title: "Gépészeti munkák",
+    description:
+      "Ipari csőhálózatok, hűtő-fűtő és szellőzéstechnikai rendszerek szerelése, karbantartása és korszerűsítése komplett műszaki dokumentációval.",
+  },
+  {
+    icon: Hammer,
+    title: "Lakatosmunkák",
+    description:
+      "Egyedi ipari fémszerkezetek, pódiumok, védőkorlátok és tartószerkezetek gyártása és helyszíni szerelése, a tervezéstől a beüzemelésig.",
+  },
+  {
+    icon: Truck,
+    title: "Gépi földmunkák",
+    description:
+      "Alapozási előkészítés, tereprendezés és árokásás nehézgépekkel, precíz műszaki vezetéssel és határidő-orientált ütemezéssel.",
+  },
+];
+
+const constructionServices = [
+  {
+    icon: BrickWall,
+    title: "Építőmesteri munkák",
+    description:
+      "Kőműves munkák, alapozás, falazás és szerkezetépítés lakossági és kis-közép ipari projektekben egyaránt, gondos kivitelezési naplóval.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Szigetelési és tetőjavítási munkák",
+    description:
+      "Homlokzati és lábazati hőszigetelés, tetőszigetelés, héjazatjavítás és vízszigetelés – a cég alaptevékenysége, több mint tízéves tapasztalattal.",
+  },
+  {
+    icon: Home,
+    title: "Teljes körű szakipari kivitelezés",
+    description:
+      "Lakossági villanyszerelés, víz- és gépészeti szerelés, hideg-meleg burkolás, festés-glettelés; egy kézből koordinált, átadható lakásfelújítás.",
+  },
+];
+
+function ServicesSection() {
+  return (
+    <section id="szolgaltatasok" className="relative py-16 md:py-20">
+      <div className="container-page">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
+            <span className="h-px w-8 bg-slate-blue" />
+            Szolgáltatások
+          </div>
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-[2.75rem]">
+            Két fő terület, egy kézből koordinálva.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Válassza ki, melyik profil áll közelebb az Ön projektjéhez: ipari
+            üzemeltetési szolgáltatásaink vagy generálkivitelezési és
+            építőmesteri munkáink között.
+          </p>
+        </div>
+
+        <Tabs defaultValue="industrial" className="mt-12">
+          <TabsList className="mx-auto flex h-auto w-full max-w-3xl flex-col gap-3 rounded-2xl bg-transparent p-0 sm:flex-row">
+            <TabsTrigger
+              value="industrial"
+              className="flex-1 rounded-xl border-2 border-slate-blue bg-white px-6 py-4 text-sm font-semibold text-slate-blue shadow-none transition-all duration-300 data-[state=active]:border-navy data-[state=active]:bg-navy data-[state=active]:text-white data-[state=active]:shadow-navy-md hover:bg-crisp"
+            >
+              Ipari szolgáltatások & Üzemeltetés (B2B)
+            </TabsTrigger>
+            <TabsTrigger
+              value="construction"
+              className="flex-1 rounded-xl border-2 border-slate-blue bg-white px-6 py-4 text-sm font-semibold text-slate-blue shadow-none transition-all duration-300 data-[state=active]:border-navy data-[state=active]:bg-navy data-[state=active]:text-white data-[state=active]:shadow-navy-md hover:bg-crisp"
+            >
+              Generálkivitelezés & Építőmesteri munkák (B2C / B2B)
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="industrial" className="mt-10 focus-visible:outline-none focus-visible:ring-0">
+            <div className="tab-fade grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {industrialServices.map((service) => (
+                <ServiceCard key={service.title} {...service} />
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="construction" className="mt-10 focus-visible:outline-none focus-visible:ring-0">
+            <div className="tab-fade grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {constructionServices.map((service) => (
+                <ServiceCard key={service.title} {...service} />
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </section>
+  );
+}
+
+function ServiceCard({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="card-lift group rounded-2xl border-2 border-slate-blue/30 bg-white p-6 transition-all duration-300 hover:border-slate-blue/60 hover:shadow-navy-md">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-white shadow-navy-sm">
+        <Icon className="h-6 w-6" />
+      </div>
+      <h3 className="mt-5 text-lg font-bold leading-snug text-navy">{title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        {description}
+      </p>
     </div>
   );
 }
