@@ -26,6 +26,7 @@ import {
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import heroIndustrialAsset from "@/assets/hero-industrial.jpg.asset.json";
 import kofemAsset from "@/assets/kofem-aerial.jpg.asset.json";
 import emersonAsset from "@/assets/emerson-partner.jpg.asset.json";
 import gyoriAsset from "@/assets/partner-gyori-real.jpg.asset.json";
@@ -59,58 +60,110 @@ function HeroSection() {
   return (
     <section
       id="fooldal"
-      className="relative overflow-hidden"
+      className="relative z-0 flex min-h-[88vh] items-center overflow-hidden"
     >
-      {/* Decorative background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-crisp via-white to-white" />
-        <div
-          className="absolute inset-0 opacity-[0.35]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, color-mix(in oklab, var(--ice-blue) 40%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--ice-blue) 40%, transparent) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-            maskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 80%)",
-          }}
-        />
-        <div
-          className="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full blur-3xl opacity-40"
-          style={{ background: "radial-gradient(circle, var(--ice-blue), transparent 70%)" }}
+      {/* Industrial background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroIndustrialAsset.url}
+          alt="Modern ipari létesítmény alkonyatban"
+          className="h-full w-full object-cover"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
         />
       </div>
 
-      <div className="container-page py-16 md:py-20 lg:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="reveal inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-blue backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-slate-blue" />
-            Székesfehérvár · Fejér megye · Országos vállalás
+      {/* Dark overlay for contrast */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/55" />
+      <div className="absolute inset-0 z-10 bg-black/25" />
+
+      {/* Subtle grid texture */}
+      <div
+        className="absolute inset-0 z-10 opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.35) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
+
+      <div className="container-page relative z-20 w-full py-28 md:py-32 lg:py-36">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left: Text content */}
+          <div className="max-w-3xl">
+            <div className="reveal inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-ice-blue backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-ice-blue" />
+              Székesfehérvár · Fejér megye · Országos vállalás
+            </div>
+
+            <h1 className="reveal reveal-delay-1 mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+              Komplex építőipari és ipari szolgáltatások egy kézben.
+            </h1>
+
+            <p className="reveal reveal-delay-2 mt-7 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+              2014 óta biztosítunk magas színvonalú építőmesteri, villamossági és
+              ipari szolgáltatásokat saját, 17 fős szakembergárdánkkal. Székesfehérvári bázisunkról Fejér megyében, országosan és
+              nemzetközi projekteken egyaránt megbízható, kiszámítható partner vagyunk.
+            </p>
+
+            <div className="reveal reveal-delay-3 mt-10 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#kapcsolat"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-semibold text-navy shadow-navy-sm transition-all hover:bg-ice-blue hover:text-navy"
+              >
+                Ajánlatot kérek
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#referenciak"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+              >
+                Referenciáink
+              </a>
+            </div>
+
+            {/* Trust bar */}
+            <div className="reveal reveal-delay-4 mt-12 flex flex-wrap items-center gap-6 border-t border-white/10 pt-6 text-sm text-white/70">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="h-5 w-5 text-ice-blue" />
+                <span>A+ bonitás</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-5 w-5 text-ice-blue" />
+                <span>Nulla adótartozás</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Globe2 className="h-5 w-5 text-ice-blue" />
+                <span>Országos & nemzetközi</span>
+              </div>
+            </div>
           </div>
 
-          <h1 className="reveal reveal-delay-1 mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-navy sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-            Több mint egy évtized szakértelme.
-            <br />
-            <span className="text-slate-blue">
-              Ipari precizitás, otthoni igényesség.
-            </span>
-          </h1>
-
-          <p className="reveal reveal-delay-2 mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            2014 óta biztosítunk magas színvonalú építőmesteri, villamossági és
-            ipari szolgáltatásokat saját, 17 fős szakembergárdánkkal. Székesfehérvári bázisunkról Fejér megyében, országosan és
-            nemzetközi projekteken egyaránt megbízható, kiszámítható partner vagyunk.
-          </p>
-
-          <div className="reveal reveal-delay-3 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#kapcsolat" className="btn-primary w-full sm:w-auto">
-              Ajánlatot kérek
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a href="#referenciak" className="btn-outline w-full sm:w-auto">
-              Referenciáink
-            </a>
+          {/* Right: Hero visual card */}
+          <div className="reveal reveal-delay-2 hidden lg:block">
+            <div className="relative ml-auto max-w-md overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md">
+              <img
+                src={kofemAsset.url}
+                alt="Ipari park légifelvételen"
+                className="aspect-[4/3] w-full rounded-xl object-cover"
+                width={600}
+                height={450}
+                loading="lazy"
+              />
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/10 bg-navy/80 p-4 backdrop-blur-md">
+                <div className="text-xs font-semibold uppercase tracking-wider text-ice-blue">
+                  Referencia
+                </div>
+                <div className="mt-1 text-lg font-bold text-white">
+                  Köfém / Alcoa ipari park
+                </div>
+                <div className="mt-1 text-sm text-white/70">
+                  Székesfehérvár
+                </div>
+              </div>
+            </div>
           </div>
-
         </div>
       </div>
     </section>

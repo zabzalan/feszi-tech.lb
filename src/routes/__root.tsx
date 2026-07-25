@@ -73,7 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         title:
-          "Fehérvári Szigeteléstechnikai Kft. — Ipari és lakossági szigetelés Székesfehérváron",
+          "Fehérvári Szigeteléstechnikai Kft. – Építőipari és Ipari Szolgáltatások",
       },
       {
         name: "description",
