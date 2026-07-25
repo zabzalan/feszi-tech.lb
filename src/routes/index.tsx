@@ -16,6 +16,9 @@ import {
   Building2,
   Globe2,
   Factory,
+  Users,
+  CalendarDays,
+  Briefcase,
 
   Phone,
   Mail,
@@ -126,16 +129,16 @@ function HeroSection() {
             {/* Trust bar */}
             <div className="reveal reveal-delay-4 mt-12 flex flex-wrap items-center gap-6 border-t border-white/10 pt-6 text-sm text-white/70">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="h-5 w-5 text-ice-blue" />
-                <span>A+ bonitás</span>
+                <CalendarDays className="h-5 w-5 text-ice-blue" />
+                <span>10+ év szakértelem</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-ice-blue" />
-                <span>Nulla adótartozás</span>
+                <Users className="h-5 w-5 text-ice-blue" />
+                <span>17 fős saját gárda</span>
               </div>
               <div className="flex items-center gap-2">
-                <Globe2 className="h-5 w-5 text-ice-blue" />
-                <span>Országos & nemzetközi</span>
+                <Briefcase className="h-5 w-5 text-ice-blue" />
+                <span>500+ sikeres projekt</span>
               </div>
             </div>
           </div>
