@@ -585,6 +585,14 @@ const oneOffProjects = [
     detail: "Hankook területén szennyvízkád betonozása.",
   },
   {
+    client: "Howmet",
+    detail: "VBF és VV mérések, jegyzőkönyvezés, EPH kiépítése.",
+  },
+  {
+    client: "Hydro",
+    detail: "Ipari takarítás és villamos karbantartás – napi szinten.",
+  },
+  {
     client: "Arconic",
     detail: "Tetőszigetelés, betonjavítások, térkövezés.",
   },
@@ -615,14 +623,6 @@ const oneOffProjects = [
   {
     client: "Howmet",
     detail: "Villamos kompresszorok elektromos telepítése.",
-  },
-  {
-    client: "Howmet",
-    detail: "VBF és VV mérések, jegyzőkönyvezés, EPH kiépítése.",
-  },
-  {
-    client: "Hydro",
-    detail: "Ipari takarítás és villamos karbantartás – napi szinten.",
   },
   {
     client: "Hydro",
