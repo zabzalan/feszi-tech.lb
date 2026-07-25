@@ -796,8 +796,9 @@ function ReferencesSection() {
                 className={cn(
                   "group flex items-start gap-3 rounded-xl border border-border bg-white/70 p-4 transition-colors hover:border-slate-blue/60 hover:bg-white",
                   i >= 3 && "hidden",
-                  i >= 3 && showAllMobile && "block",
-                  i >= 3 && "sm:block"
+                  i === 3 && "sm:flex",
+                  i >= 4 && "lg:flex",
+                  i >= 3 && showAllMobile && "flex"
                 )}
               >
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-blue" />
@@ -811,8 +812,8 @@ function ReferencesSection() {
             ))}
           </ul>
 
-          {/* Mobile show more toggle */}
-          <div className="mt-4 flex justify-center sm:hidden">
+          {/* Mobile & tablet show more toggle */}
+          <div className="mt-4 flex justify-center lg:hidden">
             <button
               type="button"
               onClick={() => setShowAllMobile((v) => !v)}
