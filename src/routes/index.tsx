@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { cn } from "@/lib/utils";
 import {
   ArrowRight,
   MapPin,
@@ -453,11 +454,85 @@ function ScrollableServiceRow({
 }: {
   services: { icon: React.ElementType; title: string; description: string }[];
 }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const cards = Array.from(container.querySelectorAll(".service-card"));
+    if (cards.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute("data-index"));
+            if (!Number.isNaN(index)) {
+              setActiveIndex(index);
+            }
+          }
+        });
+      },
+      {
+        root: container,
+        threshold: 0.5,
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, [services]);
+
+  const scrollToCard = (index: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const card = container.querySelector(
+      `[data-index="${index}"]`
+    ) as HTMLElement | null;
+    if (card) {
+      card.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  };
+
   return (
-    <div className="tab-fade -mx-4 flex snap-x snap-mandatory justify-center gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden">
-      <div className="flex w-fit gap-4 sm:gap-5">
-        {services.map((service) => (
-          <ServiceCard key={service.title} {...service} />
+    <div>
+      <div
+        ref={scrollRef}
+        className="tab-fade -mx-4 flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden"
+      >
+        <div className="flex w-fit gap-4 sm:gap-5">
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              data-index={index}
+              className="service-card"
+            >
+              <ServiceCard {...service} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-5 flex justify-center gap-2">
+        {services.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => scrollToCard(index)}
+            className={cn(
+              "h-2 rounded-full transition-all duration-300",
+              index === activeIndex
+                ? "w-5 bg-navy"
+                : "w-2 bg-slate-blue/30 hover:bg-slate-blue/60"
+            )}
+            aria-label={`Ugrás a ${index + 1}. szolgáltatáshoz`}
+          />
         ))}
       </div>
     </div>
