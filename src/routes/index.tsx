@@ -437,7 +437,7 @@ function ServiceCard({
   description: string;
 }) {
   return (
-    <div className="card-lift group flex w-[260px] shrink-0 snap-start flex-col rounded-2xl border-2 border-slate-blue/30 bg-white p-5 transition-all duration-300 hover:border-slate-blue/60 hover:shadow-navy-md sm:w-[300px] sm:p-6">
+    <div className="card-lift group flex h-full w-[260px] shrink-0 snap-start flex-col rounded-2xl border-2 border-slate-blue/30 bg-white p-5 transition-all duration-300 hover:border-slate-blue/60 hover:shadow-navy-md sm:w-[300px] sm:p-6">
       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy text-white shadow-navy-sm sm:h-12 sm:w-12">
         <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
       </div>
@@ -461,28 +461,32 @@ function ScrollableServiceRow({
     const container = scrollRef.current;
     if (!container) return;
 
-    const cards = Array.from(container.querySelectorAll(".service-card"));
+    const cards = Array.from(
+      container.querySelectorAll(".service-card")
+    ) as HTMLElement[];
     if (cards.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            if (!Number.isNaN(index)) {
-              setActiveIndex(index);
-            }
-          }
-        });
-      },
-      {
-        root: container,
-        threshold: 0.5,
-      }
-    );
+    const updateActive = () => {
+      const containerCenter = container.scrollLeft + container.clientWidth / 2;
 
-    cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      cards.forEach((card, index) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const distance = Math.abs(containerCenter - cardCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    updateActive();
+    container.addEventListener("scroll", updateActive, { passive: true });
+    return () => container.removeEventListener("scroll", updateActive);
   }, [services]);
 
   const scrollToCard = (index: number) => {
@@ -506,12 +510,12 @@ function ScrollableServiceRow({
         ref={scrollRef}
         className="tab-fade -mx-4 flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden"
       >
-        <div className="flex w-fit gap-4 sm:gap-5">
+        <div className="flex w-fit items-stretch gap-4 sm:gap-5">
           {services.map((service, index) => (
             <div
               key={service.title}
               data-index={index}
-              className="service-card"
+              className="service-card h-full"
             >
               <ServiceCard {...service} />
             </div>
