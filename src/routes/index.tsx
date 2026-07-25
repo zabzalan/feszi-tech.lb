@@ -467,12 +467,11 @@ const oneOffProjects = [
   },
   {
     client: "Howmet",
-    detail:
-      "Villamos kompresszorok elektromos telepítése, VBF és VV mérések, jegyzőkönyvezés, EPH kiépítése.",
+    detail: "Villamos kompresszorok elektromos telepítése.",
   },
   {
     client: "Howmet",
-    detail: "Villamos kompresszorok elektromos telepítése.",
+    detail: "VBF és VV mérések, jegyzőkönyvezés, EPH kiépítése.",
   },
   {
     client: "Hydro",
