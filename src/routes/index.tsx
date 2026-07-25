@@ -799,7 +799,7 @@ function PartnerCard({
   icon: React.ElementType;
 }) {
   return (
-    <div className="card-lift group flex flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-navy-sm">
+    <div className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-navy-sm">
       <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
         <img
           src={image}
