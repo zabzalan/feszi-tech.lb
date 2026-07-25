@@ -23,6 +23,7 @@ import {
   Clock,
   Send,
   Loader2,
+  ChevronDown,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
