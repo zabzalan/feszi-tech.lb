@@ -90,7 +90,7 @@ function HeroSection() {
         }}
       />
 
-      <div className="container-page relative z-20 w-full pt-20 pb-16 md:pt-24 md:pb-20 lg:pt-28 lg:pb-24">
+      <div className="container-page relative z-20 w-full pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: Text content */}
           <div className="max-w-3xl">
