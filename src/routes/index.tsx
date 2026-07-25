@@ -42,7 +42,7 @@ function Index() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      <main className="pt-20">
+      <main>
         <HeroSection />
         <AboutSection />
         <ServicesSection />
@@ -60,7 +60,7 @@ function HeroSection() {
   return (
     <section
       id="fooldal"
-      className="relative z-0 flex min-h-[88vh] items-center overflow-hidden"
+      className="relative z-0 flex min-h-screen items-center overflow-hidden"
     >
       {/* Industrial background image */}
       <div className="absolute inset-0 z-0">
@@ -88,7 +88,7 @@ function HeroSection() {
         }}
       />
 
-      <div className="container-page relative z-20 w-full py-28 md:py-32 lg:py-36">
+      <div className="container-page relative z-20 w-full pt-32 pb-20 md:pt-40 md:pb-24 lg:pt-44 lg:pb-28">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: Text content */}
           <div className="max-w-3xl">

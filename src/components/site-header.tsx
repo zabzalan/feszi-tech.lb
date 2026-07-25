@@ -29,8 +29,8 @@ export function SiteHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-border shadow-[0_2px_20px_-12px_rgba(11,37,69,0.25)]"
-          : "bg-white/70 backdrop-blur-sm"
+          ? "bg-navy/85 backdrop-blur-md border-b border-white/10 shadow-[0_2px_20px_-12px_rgba(0,0,0,0.3)]"
+          : "bg-transparent"
       }`}
     >
       <div className="container-page">
@@ -41,10 +41,10 @@ export function SiteHeader() {
               F
             </div>
             <div className="min-w-0 leading-tight">
-              <div className="truncate font-display text-[15px] font-bold text-navy sm:text-base">
+              <div className="truncate font-display text-[15px] font-bold text-white sm:text-base">
                 Fehérvári Szigeteléstechnikai
               </div>
-              <div className="truncate text-[11px] font-medium tracking-wider uppercase text-muted-foreground sm:text-xs">
+              <div className="truncate text-[11px] font-medium tracking-wider uppercase text-white/70 sm:text-xs">
                 Kft. · Székesfehérvár
               </div>
             </div>
@@ -54,13 +54,13 @@ export function SiteHeader() {
           <nav className="hidden items-center gap-1 lg:flex">
             <a
               href="#fooldal"
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:text-navy"
+              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
             >
-              Főoldal
+              Főldal
             </a>
             <a
               href="#rolunk"
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:text-navy"
+              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
             >
               Rólunk
             </a>
@@ -72,7 +72,7 @@ export function SiteHeader() {
             >
               <button
                 type="button"
-                className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:text-navy"
+                className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
                 aria-expanded={servicesOpen}
               >
                 Szolgáltatások
@@ -87,12 +87,12 @@ export function SiteHeader() {
                     : "opacity-0 -translate-y-1 pointer-events-none"
                 }`}
               >
-                <div className="overflow-hidden rounded-xl border border-border bg-white shadow-navy-md">
+                <div className="overflow-hidden rounded-xl border border-white/10 bg-navy/95 shadow-navy-md backdrop-blur-md">
                   {services.map((s) => (
                     <a
                       key={s.href}
                       href={s.href}
-                      className="block border-l-2 border-transparent px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-slate-blue hover:bg-secondary hover:text-navy"
+                      className="block border-l-2 border-transparent px-4 py-3 text-sm font-medium text-white/90 transition-colors hover:border-slate-blue hover:bg-white/10 hover:text-ice-blue"
                     >
                       {s.label}
                     </a>
@@ -103,13 +103,13 @@ export function SiteHeader() {
 
             <a
               href="#referenciak"
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:text-navy"
+              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
             >
               Referenciák
             </a>
             <a
               href="#kapcsolat"
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:text-navy"
+              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
             >
               Kapcsolat
             </a>
@@ -123,7 +123,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-border text-navy lg:hidden"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-white/20 bg-white/5 text-white lg:hidden"
             aria-label="Menü megnyitása"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -132,20 +132,20 @@ export function SiteHeader() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-border py-4 lg:hidden">
+          <div className="border-t border-white/10 bg-navy/95 py-4 backdrop-blur-md lg:hidden">
             <nav className="flex flex-col gap-1">
               {navLinks.slice(0, 2).map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-secondary hover:text-navy"
+                  className="rounded-md px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-ice-blue"
                 >
                   {l.label}
                 </a>
               ))}
-              <div className="mt-1 rounded-md bg-secondary/60 p-2">
-                <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <div className="mt-1 rounded-md bg-white/10 p-2">
+                <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-white/60">
                   Szolgáltatások
                 </div>
                 {services.map((s) => (
@@ -153,7 +153,7 @@ export function SiteHeader() {
                     key={s.href}
                     href={s.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block rounded-md px-2 py-2 text-sm font-medium text-foreground hover:text-navy"
+                    className="block rounded-md px-2 py-2 text-sm font-medium text-white/90 hover:text-ice-blue"
                   >
                     {s.label}
                   </a>
@@ -164,7 +164,7 @@ export function SiteHeader() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-secondary hover:text-navy"
+                  className="rounded-md px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-ice-blue"
                 >
                   {l.label}
                 </a>
