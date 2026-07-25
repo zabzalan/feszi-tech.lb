@@ -1283,13 +1283,8 @@ function SiteFooter() {
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-white text-navy font-display text-lg font-bold">
                 F
               </div>
-              <div className="leading-tight">
-                <div className="font-display text-base font-bold">
-                  Fehérvári Szigeteléstechnikai Kft.
-                </div>
-                <div className="text-[11px] uppercase tracking-wider text-ice-blue">
-                  Ipari precizitás, otthoni igényesség
-                </div>
+              <div className="flex items-center font-display text-base font-bold leading-tight">
+                Fehérvári Szigeteléstechnikai Kft.
               </div>
             </div>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-ice-blue/90">
