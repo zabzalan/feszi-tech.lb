@@ -25,26 +25,43 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const headerBg = scrolled
+    ? "bg-white/85 backdrop-blur-md border-b border-navy/10 shadow-[0_2px_20px_-12px_rgba(0,0,0,0.15)]"
+    : "bg-transparent";
+  const textMain = scrolled ? "text-navy" : "text-white";
+  const textMuted = scrolled ? "text-navy/70" : "text-white/70";
+  const textLink = scrolled ? "text-navy/90 hover:text-slate-blue" : "text-white/90 hover:text-ice-blue";
+  const logoBox = scrolled ? "bg-navy text-navy-foreground" : "bg-navy text-navy-foreground";
+  const dropdownBg = scrolled ? "bg-white/95 border-navy/10" : "bg-navy/95 border-white/10";
+  const dropdownLink = scrolled
+    ? "text-navy/90 hover:bg-navy/10 hover:text-slate-blue"
+    : "text-white/90 hover:bg-white/10 hover:text-ice-blue";
+  const mobileTrigger = scrolled
+    ? "border-navy/20 bg-navy/5 text-navy"
+    : "border-white/20 bg-white/5 text-white";
+  const mobileMenuBg = scrolled ? "bg-white/95 border-navy/10" : "bg-navy/95 border-white/10";
+  const mobileLink = scrolled
+    ? "text-navy/90 hover:bg-navy/10 hover:text-slate-blue"
+    : "text-white/90 hover:bg-white/10 hover:text-ice-blue";
+  const mobileGroupBg = scrolled ? "bg-navy/10" : "bg-white/10";
+  const mobileGroupLabel = scrolled ? "text-navy/60" : "text-white/60";
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-navy/85 backdrop-blur-md border-b border-white/10 shadow-[0_2px_20px_-12px_rgba(0,0,0,0.3)]"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}
     >
       <div className="container-page">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 md:py-5">
           {/* Brand */}
           <a href="#fooldal" className="flex min-w-0 items-center gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-navy text-navy-foreground font-display font-bold text-lg shadow-navy-sm">
+            <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg font-display font-bold text-lg shadow-navy-sm ${logoBox}`}>
               F
             </div>
             <div className="min-w-0 leading-tight">
-              <div className="truncate font-display text-[15px] font-bold text-white sm:text-base">
+              <div className={`truncate font-display text-[15px] font-bold sm:text-base ${textMain}`}>
                 Fehérvári Szigeteléstechnikai
               </div>
-              <div className="truncate text-[11px] font-medium tracking-wider uppercase text-white/70 sm:text-xs">
+              <div className={`truncate text-[11px] font-medium tracking-wider uppercase sm:text-xs ${textMuted}`}>
                 Kft. · Székesfehérvár
               </div>
             </div>
@@ -54,13 +71,13 @@ export function SiteHeader() {
           <nav className="hidden items-center gap-1 lg:flex">
             <a
               href="#fooldal"
-              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
             >
               Főoldal
             </a>
             <a
               href="#rolunk"
-              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
             >
               Rólunk
             </a>
@@ -72,7 +89,7 @@ export function SiteHeader() {
             >
               <button
                 type="button"
-                className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+                className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
                 aria-expanded={servicesOpen}
               >
                 Szolgáltatások
@@ -87,12 +104,12 @@ export function SiteHeader() {
                     : "opacity-0 -translate-y-1 pointer-events-none"
                 }`}
               >
-                <div className="overflow-hidden rounded-xl border border-white/10 bg-navy/95 shadow-navy-md backdrop-blur-md">
+                <div className={`overflow-hidden rounded-xl shadow-navy-md backdrop-blur-md ${dropdownBg}`}>
                   {services.map((s) => (
                     <a
                       key={s.href}
                       href={s.href}
-                      className="block border-l-2 border-transparent px-4 py-3 text-sm font-medium text-white/90 transition-colors hover:border-slate-blue hover:bg-white/10 hover:text-ice-blue"
+                      className={`block border-l-2 border-transparent px-4 py-3 text-sm font-medium transition-colors hover:border-slate-blue ${dropdownLink}`}
                     >
                       {s.label}
                     </a>
@@ -103,13 +120,13 @@ export function SiteHeader() {
 
             <a
               href="#referenciak"
-              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
             >
               Referenciák
             </a>
             <a
               href="#kapcsolat"
-              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
             >
               Kapcsolat
             </a>
@@ -123,7 +140,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-white/20 bg-white/5 text-white lg:hidden"
+            className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg lg:hidden ${mobileTrigger}`}
             aria-label="Menü megnyitása"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -132,20 +149,20 @@ export function SiteHeader() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-white/10 bg-navy/95 py-4 backdrop-blur-md lg:hidden">
+          <div className={`border-t py-4 backdrop-blur-md lg:hidden ${mobileMenuBg}`}>
             <nav className="flex flex-col gap-1">
               {navLinks.slice(0, 2).map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-md px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-ice-blue"
+                  className={`rounded-md px-3 py-2.5 text-sm font-medium ${mobileLink}`}
                 >
                   {l.label}
                 </a>
               ))}
-              <div className="mt-1 rounded-md bg-white/10 p-2">
-                <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-white/60">
+              <div className={`mt-1 rounded-md p-2 ${mobileGroupBg}`}>
+                <div className={`px-2 py-1 text-xs font-semibold uppercase tracking-wider ${mobileGroupLabel}`}>
                   Szolgáltatások
                 </div>
                 {services.map((s) => (
@@ -153,7 +170,7 @@ export function SiteHeader() {
                     key={s.href}
                     href={s.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block rounded-md px-2 py-2 text-sm font-medium text-white/90 hover:text-ice-blue"
+                    className={`block rounded-md px-2 py-2 text-sm font-medium ${mobileLink}`}
                   >
                     {s.label}
                   </a>
@@ -164,7 +181,7 @@ export function SiteHeader() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-md px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-ice-blue"
+                  className={`rounded-md px-3 py-2.5 text-sm font-medium ${mobileLink}`}
                 >
                   {l.label}
                 </a>
