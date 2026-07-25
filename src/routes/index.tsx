@@ -26,6 +26,7 @@ import {
 import { SiteHeader } from "@/components/site-header";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import heroIndustrialAsset from "@/assets/hero-industrial.jpg.asset.json";
 import kofemAsset from "@/assets/kofem-aerial.jpg.asset.json";
 import emersonAsset from "@/assets/emerson-partner.jpg.asset.json";
 import gyoriAsset from "@/assets/partner-gyori-real.jpg.asset.json";
