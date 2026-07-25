@@ -225,7 +225,7 @@ function AboutSection() {
                   "radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--ice-blue) 60%, transparent), transparent 70%)",
               }}
             />
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-4">
               <StatCard
                 value={10}
                 suffix="+"
@@ -249,11 +249,12 @@ function AboutSection() {
                 value={500}
                 suffix="+"
                 label="elvégzett projekt"
-                sub="Sikerrel teljesített kisebb-nagyobb megbízások"
+                sub="Sikerrel teljesített megbízások"
               />
               <StatCard
                 label="Ipari + lakossági"
                 sub="Családi házaktól ipari csarnokokig"
+                span
               />
             </div>
           </div>
@@ -280,13 +281,13 @@ function StatCard({
 }) {
   return (
     <div
-      className={`card-lift relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-navy-sm ${
-        span ? "sm:col-span-2" : ""
+      className={`card-lift relative overflow-hidden rounded-xl border border-border bg-white p-3 shadow-navy-sm sm:rounded-2xl sm:p-6 ${
+        span ? "col-span-2 sm:col-span-2" : ""
       } ${large ? "sm:row-span-1" : ""}`}
     >
       <div
         aria-hidden
-        className="absolute -right-6 -top-6 h-24 w-24 rounded-full opacity-40"
+        className="absolute -right-4 -top-4 h-12 w-12 rounded-full opacity-40 sm:-right-6 sm:-top-6 sm:h-24 sm:w-24"
         style={{
           background:
             "radial-gradient(circle, color-mix(in oklab, var(--ice-blue) 55%, transparent), transparent 70%)",
@@ -294,18 +295,24 @@ function StatCard({
       />
       {value !== undefined ? (
         <>
-          <div className="font-display text-5xl font-bold leading-none text-navy sm:text-6xl">
+          <div className="font-display text-2xl font-bold leading-none text-navy sm:text-5xl">
             <AnimatedCounter end={value} suffix={suffix ?? ""} />
           </div>
-          <div className="mt-3 text-sm font-semibold text-navy">{label}</div>
-          <div className="mt-1 text-xs text-muted-foreground">{sub}</div>
+          <div className="mt-1 text-xs font-semibold text-navy sm:mt-3 sm:text-sm">
+            {label}
+          </div>
+          <div className="mt-0.5 text-[10px] leading-tight text-muted-foreground sm:mt-1 sm:text-xs">
+            {sub}
+          </div>
         </>
       ) : (
         <>
-          <div className="font-display text-2xl font-bold leading-tight text-navy sm:text-3xl">
+          <div className="font-display text-base font-bold leading-tight text-navy sm:text-2xl sm:font-bold">
             {label}
           </div>
-          <div className="mt-3 text-xs text-muted-foreground">{sub}</div>
+          <div className="mt-1 text-[10px] leading-tight text-muted-foreground sm:mt-3 sm:text-xs">
+            {sub}
+          </div>
         </>
       )}
     </div>
