@@ -508,7 +508,7 @@ function ScrollableServiceRow({
     <div>
       <div
         ref={scrollRef}
-        className="tab-fade -mx-4 flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden"
+        className="tab-fade -mx-4 flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-4 pt-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 sm:pt-8 [&::-webkit-scrollbar]:hidden"
       >
         <div className="flex w-fit items-stretch gap-4 sm:gap-5">
           {services.map((service, index) => (
