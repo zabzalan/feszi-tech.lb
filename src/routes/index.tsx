@@ -60,10 +60,10 @@ function HeroSection() {
   return (
     <section
       id="fooldal"
-      className="relative flex min-h-[88vh] items-center overflow-hidden"
+      className="relative z-0 flex min-h-[88vh] items-center overflow-hidden"
     >
       {/* Industrial background image */}
-      <div className="absolute inset-0 -z-20">
+      <div className="absolute inset-0 z-0">
         <img
           src={heroIndustrialAsset.url}
           alt="Modern ipari létesítmény alkonyatban"
@@ -75,12 +75,12 @@ function HeroSection() {
       </div>
 
       {/* Dark overlay for contrast */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/55" />
-      <div className="absolute inset-0 -z-10 bg-black/25" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/55" />
+      <div className="absolute inset-0 z-10 bg-black/25" />
 
       {/* Subtle grid texture */}
       <div
-        className="absolute inset-0 -z-10 opacity-[0.08]"
+        className="absolute inset-0 z-10 opacity-[0.08]"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(255,255,255,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.35) 1px, transparent 1px)",
@@ -88,7 +88,7 @@ function HeroSection() {
         }}
       />
 
-      <div className="container-page w-full py-28 md:py-32 lg:py-36">
+      <div className="container-page relative z-20 w-full py-28 md:py-32 lg:py-36">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: Text content */}
           <div className="max-w-3xl">
