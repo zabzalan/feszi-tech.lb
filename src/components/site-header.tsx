@@ -131,7 +131,7 @@ export function SiteHeader() {
               Kapcsolat
             </a>
 
-            <a href="#kapcsolat" className="btn-primary ml-3 !py-2.5 !px-5 text-sm">
+            <a href="#kapcsolat" className="btn-primary ml-3 !py-2.5 !px-5 text-sm border-2 border-white">
               Ajánlatkérés
             </a>
           </nav>
