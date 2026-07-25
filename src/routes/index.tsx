@@ -461,28 +461,32 @@ function ScrollableServiceRow({
     const container = scrollRef.current;
     if (!container) return;
 
-    const cards = Array.from(container.querySelectorAll(".service-card"));
+    const cards = Array.from(
+      container.querySelectorAll(".service-card")
+    ) as HTMLElement[];
     if (cards.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            if (!Number.isNaN(index)) {
-              setActiveIndex(index);
-            }
-          }
-        });
-      },
-      {
-        root: container,
-        threshold: 0.5,
-      }
-    );
+    const updateActive = () => {
+      const containerCenter = container.scrollLeft + container.clientWidth / 2;
 
-    cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      cards.forEach((card, index) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const distance = Math.abs(containerCenter - cardCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    updateActive();
+    container.addEventListener("scroll", updateActive, { passive: true });
+    return () => container.removeEventListener("scroll", updateActive);
   }, [services]);
 
   const scrollToCard = (index: number) => {
@@ -506,12 +510,12 @@ function ScrollableServiceRow({
         ref={scrollRef}
         className="tab-fade -mx-4 flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden"
       >
-        <div className="flex w-fit gap-4 sm:gap-5">
+        <div className="flex w-fit items-stretch gap-4 sm:gap-5">
           {services.map((service, index) => (
             <div
               key={service.title}
               data-index={index}
-              className="service-card"
+              className="service-card h-full"
             >
               <ServiceCard {...service} />
             </div>
