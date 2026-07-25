@@ -629,6 +629,106 @@ const oneOffProjects = [
   },
 ];
 
+function ScrollablePartnerRow({
+  partners,
+}: {
+  partners: {
+    name: string;
+    location: string;
+    scope: string;
+    image: string;
+    icon: React.ElementType;
+  }[];
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const cards = Array.from(
+      container.querySelectorAll(".partner-card")
+    ) as HTMLElement[];
+    if (cards.length === 0) return;
+
+    const updateActive = () => {
+      const containerCenter = container.scrollLeft + container.clientWidth / 2;
+
+      let closestIndex = 0;
+      let minDistance = Infinity;
+
+      cards.forEach((card, index) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const distance = Math.abs(containerCenter - cardCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    updateActive();
+    container.addEventListener("scroll", updateActive, { passive: true });
+    return () => container.removeEventListener("scroll", updateActive);
+  }, [partners]);
+
+  const scrollToCard = (index: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const card = container.querySelector(
+      `[data-partner-index="${index}"]`
+    ) as HTMLElement | null;
+    if (card) {
+      card.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  };
+
+  return (
+    <div>
+      <div
+        ref={scrollRef}
+        className="-mx-4 flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        <div className="flex w-fit items-stretch gap-4">
+          {partners.map((partner, index) => (
+            <div
+              key={partner.name}
+              data-partner-index={index}
+              className="partner-card h-full w-[280px] shrink-0 snap-start"
+            >
+              <PartnerCard {...partner} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-5 flex justify-center gap-2">
+        {partners.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => scrollToCard(index)}
+            className={cn(
+              "h-2 rounded-full transition-all duration-300",
+              index === activeIndex
+                ? "w-5 bg-navy"
+                : "w-2 bg-slate-blue/30 hover:bg-slate-blue/60"
+            )}
+            aria-label={`Ugrás a ${index + 1}. partnerhez`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ReferencesSection() {
   return (
     <section id="referenciak" className="relative py-16 md:py-20">
@@ -671,7 +771,13 @@ function ReferencesSection() {
             </div>
           </div>
 
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Mobile: horizontal snap scroll with dots */}
+          <div className="mt-8 sm:hidden">
+            <ScrollablePartnerRow partners={keyPartners} />
+          </div>
+
+          {/* Tablet/Desktop: grid */}
+          <div className="mt-8 hidden gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-4">
             {keyPartners.map((p) => (
               <PartnerCard key={p.name} {...p} />
             ))}
@@ -793,7 +899,7 @@ function PartnerCard({
   icon: React.ElementType;
 }) {
   return (
-    <div className="card-lift group flex flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-navy-sm">
+    <div className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-navy-sm">
       <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
         <img
           src={image}
