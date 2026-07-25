@@ -56,7 +56,7 @@ export function SiteHeader() {
               href="#fooldal"
               className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
             >
-              Főldal
+              Főoldal
             </a>
             <a
               href="#rolunk"
