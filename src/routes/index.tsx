@@ -254,7 +254,6 @@ function AboutSection() {
               <StatCard
                 label="Ipari + lakossági"
                 sub="Családi házaktól ipari csarnokokig"
-                span
               />
             </div>
           </div>
