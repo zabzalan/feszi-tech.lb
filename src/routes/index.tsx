@@ -437,7 +437,7 @@ function ServiceCard({
   description: string;
 }) {
   return (
-    <div className="card-lift group flex w-[260px] shrink-0 snap-start flex-col rounded-2xl border-2 border-slate-blue/30 bg-white p-5 transition-all duration-300 hover:border-slate-blue/60 hover:shadow-navy-md sm:w-[300px] sm:p-6">
+    <div className="card-lift group flex h-full w-[260px] shrink-0 snap-start flex-col rounded-2xl border-2 border-slate-blue/30 bg-white p-5 transition-all duration-300 hover:border-slate-blue/60 hover:shadow-navy-md sm:w-[300px] sm:p-6">
       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy text-white shadow-navy-sm sm:h-12 sm:w-12">
         <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
       </div>
