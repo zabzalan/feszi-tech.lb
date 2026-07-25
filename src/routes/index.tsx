@@ -142,8 +142,8 @@ function AboutSection() {
                 A legfőbb bizalmi garanciánk a{" "}
                 <strong className="text-navy">17 fős, saját, bejelentett szakembergárdánk</strong>,
                 valamint a velünk együttműködő, megbízható alvállalkozói partnereink köre. Ez
-                teszi lehetővé, hogy egy családi ház padlásszigetelésétől egy ipari csarnok
-                komplex hőszigeteléséig ugyanazzal a precizitással dolgozzunk.
+                teszi lehetővé, hogy a kisebb lakossági munkáktól kezdve az ipari csarnokok
+                komplex kivitelezési és karbantartási feladataiig ugyanazzal a precizitással dolgozzunk.
               </p>
               <p>
                 Munkánk anyagi hátterét szilárd pénzügyi alapok biztosítják:{" "}
@@ -199,7 +199,7 @@ function AboutSection() {
                 value={500}
                 suffix="+"
                 label="elvégzett projekt"
-                sub="Kisebb-nagyobb sikerrel teljesített megbízások"
+                sub="&nbsp;Sikerrel teljesített kisebb-nagyobb megbízások"
               />
               <StatCard
                 label="Ipari + lakossági"
