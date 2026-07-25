@@ -142,30 +142,6 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Right: Hero visual card */}
-          <div className="reveal reveal-delay-2 hidden lg:block">
-            <div className="relative ml-auto max-w-md overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md">
-              <img
-                src={kofemAsset.url}
-                alt="Ipari park légifelvételen"
-                className="aspect-[4/3] w-full rounded-xl object-cover"
-                width={600}
-                height={450}
-                loading="lazy"
-              />
-              <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/10 bg-navy/80 p-4 backdrop-blur-md">
-                <div className="text-xs font-semibold uppercase tracking-wider text-ice-blue">
-                  Referencia
-                </div>
-                <div className="mt-1 text-lg font-bold text-white">
-                  Köfém / Alcoa ipari park
-                </div>
-                <div className="mt-1 text-sm text-white/70">
-                  Székesfehérvár
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
