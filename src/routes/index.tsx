@@ -99,8 +99,8 @@ function HeroSection() {
           </h1>
 
           <p className="reveal reveal-delay-2 mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            2014 óta végzünk szigeteléstechnikai kivitelezéseket saját, 17 fős
-            szakembergárdával. Székesfehérvári bázisunkról Fejér megyében, országosan és
+            2014 óta biztosítunk magas színvonalú építőmesteri, villamossági és
+            ipari szolgáltatásokat saját, 17 fős szakembergárdánkkal. Székesfehérvári bázisunkról Fejér megyében, országosan és
             nemzetközi projekteken egyaránt megbízható, kiszámítható partner vagyunk.
           </p>
 
@@ -132,9 +132,9 @@ function AboutSection() {
               Rólunk
             </div>
             <h2 className="mt-4 text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-[2.75rem]">
-              Stabil háttér, saját szakembergárda,
+              Stabil háttér,
               <br className="hidden sm:block" />
-              kiszámítható kivitelezés.
+              megbízható és kiszámítható kivitelezés.
             </h2>
 
             <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-foreground/80 sm:text-base">
