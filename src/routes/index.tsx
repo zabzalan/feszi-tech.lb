@@ -482,15 +482,11 @@ function ScrollableServiceRow({
         </div>
       </div>
 
-      <div className="mx-auto mt-4 flex max-w-md items-center gap-3 px-4">
-        <span className="text-xs font-semibold uppercase tracking-wider text-slate-blue">{Math.round(progress)}%</span>
-        <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-slate-blue/20">
-          <div
-            className="absolute left-0 top-0 h-full rounded-full bg-navy transition-all duration-150"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-        <span className="text-xs font-semibold uppercase tracking-wider text-slate-blue">{Math.round(100 - progress)}%</span>
+      <div className="mx-auto mt-5 h-0.5 w-24 overflow-hidden rounded-full bg-slate-blue/20">
+        <div
+          className="h-full rounded-full bg-navy transition-all duration-150"
+          style={{ width: `${progress}%` }}
+        />
       </div>
     </div>
   );
