@@ -199,7 +199,7 @@ function AboutSection() {
                 value={500}
                 suffix="+"
                 label="elvégzett projekt"
-                sub="&nbsp;Sikerrel teljesített kisebb-nagyobb megbízások"
+                sub="Sikerrel teljesített kisebb-nagyobb megbízások"
               />
               <StatCard
                 label="Ipari + lakossági"
