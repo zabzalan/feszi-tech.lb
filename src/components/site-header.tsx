@@ -62,7 +62,7 @@ export function SiteHeader() {
                 Fehérvári Szigeteléstechnikai
               </div>
               <div className={`truncate text-[11px] font-medium tracking-wider uppercase sm:text-xs ${textMuted}`}>
-                Kft. · Székesfehérvár
+                KFT.
               </div>
             </div>
           </a>
