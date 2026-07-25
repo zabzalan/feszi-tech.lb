@@ -54,9 +54,6 @@ export function SiteHeader() {
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 md:py-5">
           {/* Brand */}
           <a href="#fooldal" className="flex min-w-0 items-center gap-3">
-            <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg font-display font-bold text-lg shadow-navy-sm ${logoBox}`}>
-              F
-            </div>
             <div className="min-w-0 leading-tight">
               <div className={`truncate font-display text-[15px] font-bold sm:text-base ${textMain}`}>
                 Fehérvári Szigeteléstechnikai
