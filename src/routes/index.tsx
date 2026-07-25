@@ -696,7 +696,7 @@ function ScrollablePartnerRow({
         ref={scrollRef}
         className="-mx-4 flex snap-x snap-mandatory justify-start gap-4 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        <div className="flex w-fit items-stretch gap-4">
+        <div className="flex w-fit items-stretch gap-4 py-6">
           {partners.map((partner, index) => (
             <div
               key={partner.name}
