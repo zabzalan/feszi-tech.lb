@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState } from "react";
 import {
   ArrowRight,
   MapPin,
@@ -453,40 +453,12 @@ function ScrollableServiceRow({
 }: {
   services: { icon: React.ElementType; title: string; description: string }[];
 }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-
-  const handleScroll = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    const pct = max > 0 ? (el.scrollLeft / max) * 100 : 0;
-    setProgress(Math.min(100, Math.max(0, pct)));
-  }, []);
-
-  useEffect(() => {
-    handleScroll();
-  }, [handleScroll]);
-
   return (
-    <div className="relative">
-      <div
-        ref={scrollRef}
-        onScroll={handleScroll}
-        className="tab-fade -mx-4 flex snap-x snap-mandatory justify-center gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden"
-      >
-        <div className="flex w-fit gap-4 sm:gap-5">
-          {services.map((service) => (
-            <ServiceCard key={service.title} {...service} />
-          ))}
-        </div>
-      </div>
-
-      <div className="mx-auto mt-5 h-0.5 w-24 overflow-hidden rounded-full bg-slate-blue/20">
-        <div
-          className="h-full rounded-full bg-navy transition-all duration-150"
-          style={{ width: `${progress}%` }}
-        />
+    <div className="tab-fade -mx-4 flex snap-x snap-mandatory justify-center gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden">
+      <div className="flex w-fit gap-4 sm:gap-5">
+        {services.map((service) => (
+          <ServiceCard key={service.title} {...service} />
+        ))}
       </div>
     </div>
   );
