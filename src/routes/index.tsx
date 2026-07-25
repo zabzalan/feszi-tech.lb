@@ -426,7 +426,7 @@ const keyPartners = [
     icon: Globe2,
   },
   {
-    name: "IKEA ÁRUHÁZAK",
+    name: "CBRE Hungary",
     location: "IKEA áruházak",
     scope:
       "A megbízó felkérésére az IKEA áruházakban nézünk teljes körű leesésvédelmi felülvizsgálatokat, valamint az esetlegesen feltárt hibák szakszerű javítását.",
