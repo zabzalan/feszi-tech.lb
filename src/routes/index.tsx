@@ -1035,7 +1035,7 @@ function SiteFooter() {
               <FooterLink href="#rolunk">Rólunk</FooterLink>
               <FooterLink href="#szolgaltatasok">Szolgáltatások</FooterLink>
               <FooterLink href="#referenciak">Referenciák</FooterLink>
-              <FooterLink href="#miert-minket">Miért minket</FooterLink>
+              
               <FooterLink href="#kapcsolat">Kapcsolat</FooterLink>
             </ul>
           </div>
