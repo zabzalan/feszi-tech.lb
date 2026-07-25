@@ -771,16 +771,9 @@ function ReferencesSection() {
             </div>
           </div>
 
-          {/* Mobile: horizontal snap scroll with dots */}
-          <div className="mt-8 sm:hidden">
+          {/* Horizontal snap scroll with dots — all viewports */}
+          <div className="mt-8">
             <ScrollablePartnerRow partners={keyPartners} />
-          </div>
-
-          {/* Tablet/Desktop: grid */}
-          <div className="mt-8 hidden gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-4">
-            {keyPartners.map((p) => (
-              <PartnerCard key={p.name} {...p} />
-            ))}
           </div>
         </div>
 
