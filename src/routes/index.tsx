@@ -239,7 +239,7 @@ function AboutSection() {
                 sub="Bejelentett, képzett csapat"
               />
               <StatCard
-                value={4}
+                value={5}
                 suffix="+"
                 label="nemzetközi / ipari óriáspartner"
                 sub="Hosszú távú együttműködések"
