@@ -225,7 +225,7 @@ function AboutSection() {
                   "radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--ice-blue) 60%, transparent), transparent 70%)",
               }}
             />
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-4">
               <StatCard
                 value={10}
                 suffix="+"
@@ -249,11 +249,12 @@ function AboutSection() {
                 value={500}
                 suffix="+"
                 label="elvégzett projekt"
-                sub="Sikerrel teljesített kisebb-nagyobb megbízások"
+                sub="Sikerrel teljesített megbízások"
               />
               <StatCard
                 label="Ipari + lakossági"
                 sub="Családi házaktól ipari csarnokokig"
+                span
               />
             </div>
           </div>
