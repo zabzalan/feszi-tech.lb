@@ -471,6 +471,10 @@ const oneOffProjects = [
       "Villamos kompresszorok elektromos telepítése, VBF és VV mérések, jegyzőkönyvezés, EPH kiépítése.",
   },
   {
+    client: "Howmet",
+    detail: "Villamos kompresszorok elektromos telepítése.",
+  },
+  {
     client: "Hydro",
     detail: "Ipari takarítás és villamos karbantartás – napi szinten.",
   },
