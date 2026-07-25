@@ -31,7 +31,6 @@ export function SiteHeader() {
   const textMain = scrolled ? "text-navy" : "text-white";
   const textMuted = scrolled ? "text-navy/70" : "text-white/70";
   const textLink = scrolled ? "text-navy/90 hover:text-slate-blue" : "text-white/90 hover:text-ice-blue";
-  const logoBox = scrolled ? "bg-navy text-navy-foreground" : "bg-navy text-navy-foreground";
   const dropdownBg = scrolled ? "bg-white/95 border-navy/10" : "bg-navy/95 border-white/10";
   const dropdownLink = scrolled
     ? "text-navy/90 hover:bg-navy/10 hover:text-slate-blue"
@@ -54,9 +53,6 @@ export function SiteHeader() {
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 md:py-5">
           {/* Brand */}
           <a href="#fooldal" className="flex min-w-0 items-center gap-3">
-            <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg font-display font-bold text-lg shadow-navy-sm ${logoBox}`}>
-              F
-            </div>
             <div className="min-w-0 leading-tight">
               <div className={`truncate font-display text-[15px] font-bold sm:text-base ${textMain}`}>
                 Fehérvári Szigeteléstechnikai

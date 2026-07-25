@@ -1256,9 +1256,6 @@ function SiteFooter() {
           {/* Brand + company */}
           <div>
             <div className="flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-lg bg-white text-navy font-display text-lg font-bold">
-                F
-              </div>
               <div className="flex items-center font-display text-base font-bold leading-tight">
                 Fehérvári Szigeteléstechnikai Kft.
               </div>
