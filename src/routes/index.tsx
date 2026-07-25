@@ -426,10 +426,10 @@ const keyPartners = [
     icon: Globe2,
   },
   {
-    name: "CBRE Hungary",
-    location: "Kereskedelmi ingatlanportfólió, Magyarország",
+    name: "IKEA ÁRUHÁZAK",
+    location: "IKEA áruházak",
     scope:
-      "Kereskedelmi ingatlankomplexumok műszaki és szerkezeti felülvizsgálata, szakértői jelentések készítése.",
+      "A megbízó felkérésére az IKEA áruházakban nézünk teljes körű leesésvédelmi felülvizsgálatokat, valamint az esetlegesen feltárt hibák szakszerű javítását.",
     image: cbreAsset.url,
     icon: Building2,
   },
