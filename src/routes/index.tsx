@@ -448,6 +448,54 @@ function ServiceCard({
   );
 }
 
+function ScrollableServiceRow({
+  services,
+}: {
+  services: { icon: React.ElementType; title: string; description: string }[];
+}) {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = React.useState(0);
+
+  const handleScroll = React.useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    const pct = max > 0 ? (el.scrollLeft / max) * 100 : 0;
+    setProgress(Math.min(100, Math.max(0, pct)));
+  }, []);
+
+  React.useEffect(() => {
+    handleScroll();
+  }, [handleScroll]);
+
+  return (
+    <div className="relative">
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="tab-fade -mx-4 flex snap-x snap-mandatory justify-center gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden"
+      >
+        <div className="flex w-fit gap-4 sm:gap-5">
+          {services.map((service) => (
+            <ServiceCard key={service.title} {...service} />
+          ))}
+        </div>
+      </div>
+
+      <div className="mx-auto mt-4 flex max-w-md items-center gap-3 px-4">
+        <span className="text-xs font-semibold uppercase tracking-wider text-slate-blue">{Math.round(progress)}%</span>
+        <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-slate-blue/20">
+          <div
+            className="absolute left-0 top-0 h-full rounded-full bg-navy transition-all duration-150"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <span className="text-xs font-semibold uppercase tracking-wider text-slate-blue">{Math.round(100 - progress)}%</span>
+      </div>
+    </div>
+  );
+}
+
 const keyPartners = [
   {
     name: "Emerson",
