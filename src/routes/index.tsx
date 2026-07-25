@@ -990,10 +990,7 @@ function ContactSection() {
                   </a>
                 </InfoRow>
                 <InfoRow icon={Clock} label="Elérhetőség">
-                  Hétfő – Péntek · 7:00 – 17:00
-                  <div className="mt-0.5 text-xs text-muted-foreground">
-                    Sürgős ipari megkereséseket hétvégén is fogadunk.
-                  </div>
+                  Hétfő – Péntek · 7:00 – 16:00
                 </InfoRow>
               </div>
             </div>
@@ -1100,8 +1097,8 @@ function SiteFooter() {
               </div>
             </div>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-ice-blue/90">
-              2014 óta végzünk szigeteléstechnikai és szakipari kivitelezéseket
-              saját, 17 fős gárdával – Székesfehérvárról, Fejér megyében,
+              2014 óta biztosítunk magas színvonalú építőmesteri, villamossági és
+              ipari szolgáltatásokat – Székesfehérvárról, Fejér megyében,
               országosan és nemzetközi projekteken egyaránt.
             </p>
           </div>
