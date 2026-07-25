@@ -453,10 +453,10 @@ function ScrollableServiceRow({
 }: {
   services: { icon: React.ElementType; title: string; description: string }[];
 }) {
-  const scrollRef = React.useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = React.useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
 
-  const handleScroll = React.useCallback(() => {
+  const handleScroll = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
     const max = el.scrollWidth - el.clientWidth;
@@ -464,7 +464,7 @@ function ScrollableServiceRow({
     setProgress(Math.min(100, Math.max(0, pct)));
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     handleScroll();
   }, [handleScroll]);
 
