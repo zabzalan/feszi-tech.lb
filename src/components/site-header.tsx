@@ -54,10 +54,10 @@ export function SiteHeader() {
           {/* Brand */}
           <a href="#fooldal" className="flex min-w-0 items-center gap-3">
             <div className="min-w-0 leading-tight">
-              <div className={`truncate font-display text-[15px] font-bold sm:text-base ${textMain}`}>
+              <div className={`truncate font-display text-base font-bold sm:text-lg md:text-xl ${textMain}`}>
                 Fehérvári Szigeteléstechnikai
               </div>
-              <div className={`truncate text-[11px] font-medium tracking-wider uppercase sm:text-xs ${textMuted}`}>
+              <div className={`truncate text-xs font-medium tracking-wider uppercase sm:text-sm ${textMuted}`}>
                 KFT.
               </div>
             </div>
