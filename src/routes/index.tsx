@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import {
   ArrowRight,
   MapPin,
@@ -414,19 +414,11 @@ function ServicesSection() {
           </TabsList>
 
           <TabsContent value="industrial" className="mt-10 focus-visible:outline-none focus-visible:ring-0">
-            <div className="tab-fade -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden">
-              {industrialServices.map((service) => (
-                <ServiceCard key={service.title} {...service} />
-              ))}
-            </div>
+            <ScrollableServiceRow services={industrialServices} />
           </TabsContent>
 
           <TabsContent value="construction" className="mt-10 focus-visible:outline-none focus-visible:ring-0">
-            <div className="tab-fade -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden">
-              {constructionServices.map((service) => (
-                <ServiceCard key={service.title} {...service} />
-              ))}
-            </div>
+            <ScrollableServiceRow services={constructionServices} />
           </TabsContent>
         </Tabs>
       </div>
@@ -452,6 +444,54 @@ function ServiceCard({
       <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground sm:mt-3">
         {description}
       </p>
+    </div>
+  );
+}
+
+function ScrollableServiceRow({
+  services,
+}: {
+  services: { icon: React.ElementType; title: string; description: string }[];
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    const pct = max > 0 ? (el.scrollLeft / max) * 100 : 0;
+    setProgress(Math.min(100, Math.max(0, pct)));
+  }, []);
+
+  useEffect(() => {
+    handleScroll();
+  }, [handleScroll]);
+
+  return (
+    <div className="relative">
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="tab-fade -mx-4 flex snap-x snap-mandatory justify-center gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden"
+      >
+        <div className="flex w-fit gap-4 sm:gap-5">
+          {services.map((service) => (
+            <ServiceCard key={service.title} {...service} />
+          ))}
+        </div>
+      </div>
+
+      <div className="mx-auto mt-4 flex max-w-md items-center gap-3 px-4">
+        <span className="text-xs font-semibold uppercase tracking-wider text-slate-blue">{Math.round(progress)}%</span>
+        <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-slate-blue/20">
+          <div
+            className="absolute left-0 top-0 h-full rounded-full bg-navy transition-all duration-150"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <span className="text-xs font-semibold uppercase tracking-wider text-slate-blue">{Math.round(100 - progress)}%</span>
+      </div>
     </div>
   );
 }
