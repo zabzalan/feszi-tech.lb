@@ -731,6 +731,8 @@ function ScrollablePartnerRow({
 }
 
 function ReferencesSection() {
+  const [showAllMobile, setShowAllMobile] = useState(false);
+
   return (
     <section id="referenciak" className="relative py-16 md:py-20">
       <div
@@ -791,7 +793,12 @@ function ReferencesSection() {
             {oneOffProjects.map((p, i) => (
               <li
                 key={i}
-                className="group flex items-start gap-3 rounded-xl border border-border bg-white/70 p-4 transition-colors hover:border-slate-blue/60 hover:bg-white"
+                className={cn(
+                  "group flex items-start gap-3 rounded-xl border border-border bg-white/70 p-4 transition-colors hover:border-slate-blue/60 hover:bg-white",
+                  i >= 3 && "hidden",
+                  i >= 3 && showAllMobile && "block",
+                  i >= 3 && "sm:block"
+                )}
               >
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-blue" />
                 <div className="min-w-0">
@@ -803,6 +810,23 @@ function ReferencesSection() {
               </li>
             ))}
           </ul>
+
+          {/* Mobile show more toggle */}
+          <div className="mt-4 flex justify-center sm:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAllMobile((v) => !v)}
+              className="inline-flex items-center gap-2 rounded-full border border-slate-blue/30 bg-white/80 px-5 py-2.5 text-sm font-semibold text-navy shadow-sm transition-colors hover:border-slate-blue/60 hover:bg-white"
+            >
+              {showAllMobile ? "Mutass kevesebbet" : "Mutass többet"}
+              <ChevronDown
+                className={cn(
+                  "h-4 w-4 shrink-0 text-slate-blue transition-transform duration-300",
+                  showAllMobile && "rotate-180"
+                )}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </section>
