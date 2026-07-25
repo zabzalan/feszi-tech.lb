@@ -25,13 +25,30 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const headerBg = scrolled
+    ? "bg-white/85 backdrop-blur-md border-b border-navy/10 shadow-[0_2px_20px_-12px_rgba(0,0,0,0.15)]"
+    : "bg-transparent";
+  const textMain = scrolled ? "text-navy" : "text-white";
+  const textMuted = scrolled ? "text-navy/70" : "text-white/70";
+  const textLink = scrolled ? "text-navy/90 hover:text-slate-blue" : "text-white/90 hover:text-ice-blue";
+  const logoBox = scrolled ? "bg-navy text-navy-foreground" : "bg-navy text-navy-foreground";
+  const dropdownBg = scrolled ? "bg-white/95 border-navy/10" : "bg-navy/95 border-white/10";
+  const dropdownLink = scrolled
+    ? "text-navy/90 hover:bg-navy/10 hover:text-slate-blue"
+    : "text-white/90 hover:bg-white/10 hover:text-ice-blue";
+  const mobileTrigger = scrolled
+    ? "border-navy/20 bg-navy/5 text-navy"
+    : "border-white/20 bg-white/5 text-white";
+  const mobileMenuBg = scrolled ? "bg-white/95 border-navy/10" : "bg-navy/95 border-white/10";
+  const mobileLink = scrolled
+    ? "text-navy/90 hover:bg-navy/10 hover:text-slate-blue"
+    : "text-white/90 hover:bg-white/10 hover:text-ice-blue";
+  const mobileGroupBg = scrolled ? "bg-navy/10" : "bg-white/10";
+  const mobileGroupLabel = scrolled ? "text-navy/60" : "text-white/60";
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-navy/85 backdrop-blur-md border-b border-white/10 shadow-[0_2px_20px_-12px_rgba(0,0,0,0.3)]"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}
     >
       <div className="container-page">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 md:py-5">
