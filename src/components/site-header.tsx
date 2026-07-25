@@ -71,13 +71,13 @@ export function SiteHeader() {
           <nav className="hidden items-center gap-1 lg:flex">
             <a
               href="#fooldal"
-              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
             >
               Főoldal
             </a>
             <a
               href="#rolunk"
-              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
             >
               Rólunk
             </a>
@@ -89,7 +89,7 @@ export function SiteHeader() {
             >
               <button
                 type="button"
-                className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+                className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
                 aria-expanded={servicesOpen}
               >
                 Szolgáltatások
@@ -104,12 +104,12 @@ export function SiteHeader() {
                     : "opacity-0 -translate-y-1 pointer-events-none"
                 }`}
               >
-                <div className="overflow-hidden rounded-xl border border-white/10 bg-navy/95 shadow-navy-md backdrop-blur-md">
+                <div className={`overflow-hidden rounded-xl shadow-navy-md backdrop-blur-md ${dropdownBg}`}>
                   {services.map((s) => (
                     <a
                       key={s.href}
                       href={s.href}
-                      className="block border-l-2 border-transparent px-4 py-3 text-sm font-medium text-white/90 transition-colors hover:border-slate-blue hover:bg-white/10 hover:text-ice-blue"
+                      className={`block border-l-2 border-transparent px-4 py-3 text-sm font-medium transition-colors hover:border-slate-blue ${dropdownLink}`}
                     >
                       {s.label}
                     </a>
@@ -120,13 +120,13 @@ export function SiteHeader() {
 
             <a
               href="#referenciak"
-              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
             >
               Referenciák
             </a>
             <a
               href="#kapcsolat"
-              className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition-colors hover:text-ice-blue"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${textLink}`}
             >
               Kapcsolat
             </a>
