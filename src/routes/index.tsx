@@ -402,13 +402,13 @@ function ServicesSection() {
           <TabsList className="mx-auto flex h-auto w-full max-w-3xl flex-col items-stretch gap-3 rounded-2xl bg-transparent p-0 sm:flex-row">
             <TabsTrigger
               value="industrial"
-              className="flex flex-1 items-center justify-center rounded-xl border-2 border-slate-blue bg-white px-6 py-4 text-center text-sm font-semibold leading-snug text-slate-blue shadow-none transition-all duration-300 data-[state=active]:border-navy data-[state=active]:bg-navy data-[state=active]:text-white data-[state=active]:shadow-navy-md hover:bg-crisp"
+              className="flex h-auto min-h-[3.25rem] flex-1 items-center justify-center rounded-xl border-2 border-slate-blue bg-white px-4 py-3 text-center text-xs font-semibold leading-snug text-slate-blue shadow-none transition-all duration-300 data-[state=active]:border-navy data-[state=active]:bg-navy data-[state=active]:text-white data-[state=active]:shadow-navy-md hover:bg-crisp sm:min-h-[4rem] sm:px-6 sm:py-4 sm:text-sm"
             >
               Ipari szolgáltatások & Üzemeltetés (B2B)
             </TabsTrigger>
             <TabsTrigger
               value="construction"
-              className="flex flex-1 items-center justify-center rounded-xl border-2 border-slate-blue bg-white px-6 py-4 text-center text-sm font-semibold leading-snug text-slate-blue shadow-none transition-all duration-300 data-[state=active]:border-navy data-[state=active]:bg-navy data-[state=active]:text-white data-[state=active]:shadow-navy-md hover:bg-crisp"
+              className="flex h-auto min-h-[3.25rem] flex-1 items-center justify-center rounded-xl border-2 border-slate-blue bg-white px-4 py-3 text-center text-xs font-semibold leading-snug text-slate-blue shadow-none transition-all duration-300 data-[state=active]:border-navy data-[state=active]:bg-navy data-[state=active]:text-white data-[state=active]:shadow-navy-md hover:bg-crisp sm:min-h-[4rem] sm:px-6 sm:py-4 sm:text-sm"
             >
               Generálkivitelezés & Építőmesteri munkák (B2C / B2B)
             </TabsTrigger>
