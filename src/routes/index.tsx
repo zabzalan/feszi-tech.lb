@@ -444,12 +444,12 @@ function ServiceCard({
   description: string;
 }) {
   return (
-    <div className="card-lift group rounded-2xl border-2 border-slate-blue/30 bg-white p-6 transition-all duration-300 hover:border-slate-blue/60 hover:shadow-navy-md">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-white shadow-navy-sm">
-        <Icon className="h-6 w-6" />
+    <div className="card-lift group flex w-[260px] shrink-0 snap-start flex-col rounded-2xl border-2 border-slate-blue/30 bg-white p-5 transition-all duration-300 hover:border-slate-blue/60 hover:shadow-navy-md sm:w-[300px] sm:p-6">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy text-white shadow-navy-sm sm:h-12 sm:w-12">
+        <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
       </div>
-      <h3 className="mt-5 text-lg font-bold leading-snug text-navy">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+      <h3 className="mt-4 text-base font-bold leading-snug text-navy sm:mt-5 sm:text-lg">{title}</h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground sm:mt-3">
         {description}
       </p>
     </div>
