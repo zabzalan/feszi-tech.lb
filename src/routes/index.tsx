@@ -196,8 +196,10 @@ function AboutSection() {
                 span
               />
               <StatCard
-                label="Nulla adótartozás"
-                sub="Tehermentes bankszámla, stabil pénzügyi háttér"
+                value={500}
+                suffix="+"
+                label="elvégzett projekt"
+                sub="Kisebb-nagyobb sikerrel teljesített megbízások"
               />
               <StatCard
                 label="Ipari + lakossági"
