@@ -414,11 +414,11 @@ function ServicesSection() {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="industrial" className="mt-14 focus-visible:outline-none focus-visible:ring-0">
+          <TabsContent value="industrial" className="mt-10 focus-visible:outline-none focus-visible:ring-0">
             <ScrollableServiceRow services={industrialServices} />
           </TabsContent>
 
-          <TabsContent value="construction" className="mt-14 focus-visible:outline-none focus-visible:ring-0">
+          <TabsContent value="construction" className="mt-10 focus-visible:outline-none focus-visible:ring-0">
             <ScrollableServiceRow services={constructionServices} />
           </TabsContent>
         </Tabs>
