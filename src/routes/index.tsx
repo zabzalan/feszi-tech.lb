@@ -482,12 +482,6 @@ function ScrollableServiceRow({
         </div>
       </div>
 
-      <div className="mx-auto mt-5 h-0.5 w-24 overflow-hidden rounded-full bg-slate-blue/20">
-        <div
-          className="h-full rounded-full bg-navy transition-all duration-150"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
     </div>
   );
 }
