@@ -140,7 +140,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-white/20 bg-white/5 text-white lg:hidden"
+            className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg lg:hidden ${mobileTrigger}`}
             aria-label="Menü megnyitása"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -149,20 +149,20 @@ export function SiteHeader() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-white/10 bg-navy/95 py-4 backdrop-blur-md lg:hidden">
+          <div className={`border-t py-4 backdrop-blur-md lg:hidden ${mobileMenuBg}`}>
             <nav className="flex flex-col gap-1">
               {navLinks.slice(0, 2).map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-md px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-ice-blue"
+                  className={`rounded-md px-3 py-2.5 text-sm font-medium ${mobileLink}`}
                 >
                   {l.label}
                 </a>
               ))}
-              <div className="mt-1 rounded-md bg-white/10 p-2">
-                <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-white/60">
+              <div className={`mt-1 rounded-md p-2 ${mobileGroupBg}`}>
+                <div className={`px-2 py-1 text-xs font-semibold uppercase tracking-wider ${mobileGroupLabel}`}>
                   Szolgáltatások
                 </div>
                 {services.map((s) => (
@@ -170,7 +170,7 @@ export function SiteHeader() {
                     key={s.href}
                     href={s.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block rounded-md px-2 py-2 text-sm font-medium text-white/90 hover:text-ice-blue"
+                    className={`block rounded-md px-2 py-2 text-sm font-medium ${mobileLink}`}
                   >
                     {s.label}
                   </a>
@@ -181,7 +181,7 @@ export function SiteHeader() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-md px-3 py-2.5 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-ice-blue"
+                  className={`rounded-md px-3 py-2.5 text-sm font-medium ${mobileLink}`}
                 >
                   {l.label}
                 </a>
