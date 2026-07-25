@@ -414,19 +414,11 @@ function ServicesSection() {
           </TabsList>
 
           <TabsContent value="industrial" className="mt-10 focus-visible:outline-none focus-visible:ring-0">
-            <div className="tab-fade -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden">
-              {industrialServices.map((service) => (
-                <ServiceCard key={service.title} {...service} />
-              ))}
-            </div>
+            <ScrollableServiceRow services={industrialServices} />
           </TabsContent>
 
           <TabsContent value="construction" className="mt-10 focus-visible:outline-none focus-visible:ring-0">
-            <div className="tab-fade -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:gap-5 sm:px-6 [&::-webkit-scrollbar]:hidden">
-              {constructionServices.map((service) => (
-                <ServiceCard key={service.title} {...service} />
-              ))}
-            </div>
+            <ScrollableServiceRow services={constructionServices} />
           </TabsContent>
         </Tabs>
       </div>
