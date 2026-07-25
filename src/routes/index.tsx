@@ -16,10 +16,7 @@ import {
   Building2,
   Globe2,
   Factory,
-  Users,
-  Landmark,
-  Layers,
-  CalendarClock,
+
   Phone,
   Mail,
   Clock,
@@ -49,8 +46,8 @@ function Index() {
         <AboutSection />
         <ServicesSection />
         <ReferencesSection />
-        <WhyUsSection />
         <ContactSection />
+
       </main>
 
       <SiteFooter />
@@ -682,81 +679,6 @@ function PartnerCard({
   );
 }
 
-/* ============================================================
-   6) WHY US
-   ============================================================ */
-
-const whyUsItems = [
-  {
-    icon: Users,
-    title: "Saját, 17 fős szakembergárda",
-    description:
-      "Bejelentett, képzett, állandó csapat – nem alkalmi alvállalkozók. Egyenletes minőség, kiszámítható ütemezés.",
-  },
-  {
-    icon: Landmark,
-    title: "Stabil pénzügyi háttér",
-    description:
-      "Tehermentes bankszámla, nulla adótartozás. Nagyprojektek anyagköltségét is előre finanszírozzuk.",
-  },
-  {
-    icon: Layers,
-    title: "Ipari és lakossági szakértelem",
-    description:
-      "Egy csarnok komplex kivitelezésétől egy családi ház felújításáig – ugyanaz a mérnöki precizitás, egy kézből.",
-  },
-  {
-    icon: CalendarClock,
-    title: "2014 óta megbízható partner",
-    description:
-      "Több mint egy évtizedes folyamatos működés, hosszú távú ipari és lakossági együttműködésekkel a hátunk mögött.",
-  },
-];
-
-function WhyUsSection() {
-  return (
-    <section id="miert-minket" className="relative py-16 md:py-20">
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, color-mix(in oklab, var(--ice-blue) 10%, transparent), transparent)",
-        }}
-      />
-      <div className="container-page">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-blue">
-            <span className="h-px w-8 bg-slate-blue" />
-            Miért minket
-          </div>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-[2.75rem]">
-            Négy ok, amiért a partnereink maradnak.
-          </h2>
-        </div>
-
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {whyUsItems.map((item) => (
-            <div
-              key={item.title}
-              className="card-lift group rounded-2xl border border-border bg-white p-6 shadow-navy-sm"
-            >
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-navy text-white shadow-navy-sm">
-                <item.icon className="h-6 w-6" />
-              </div>
-              <h3 className="mt-5 text-base font-bold leading-snug text-navy">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ============================================================
    7) CONTACT
