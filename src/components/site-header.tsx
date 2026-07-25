@@ -31,7 +31,6 @@ export function SiteHeader() {
   const textMain = scrolled ? "text-navy" : "text-white";
   const textMuted = scrolled ? "text-navy/70" : "text-white/70";
   const textLink = scrolled ? "text-navy/90 hover:text-slate-blue" : "text-white/90 hover:text-ice-blue";
-  const logoBox = scrolled ? "bg-navy text-navy-foreground" : "bg-navy text-navy-foreground";
   const dropdownBg = scrolled ? "bg-white/95 border-navy/10" : "bg-navy/95 border-white/10";
   const dropdownLink = scrolled
     ? "text-navy/90 hover:bg-navy/10 hover:text-slate-blue"
