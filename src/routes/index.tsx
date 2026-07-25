@@ -127,11 +127,11 @@ function HeroSection() {
             <div className="reveal reveal-delay-4 mt-12 flex flex-wrap items-center gap-6 border-t border-white/10 pt-6 text-sm text-white/70">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-5 w-5 text-ice-blue" />
-                <span>Összeszokott csapat</span>
+                <span>A+ bonitás</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-ice-blue" />
-                <span>Stabil háttér</span>
+                <span>Nulla adótartozás</span>
               </div>
               <div className="flex items-center gap-2">
                 <Globe2 className="h-5 w-5 text-ice-blue" />
