@@ -54,14 +54,14 @@ export function SiteHeader() {
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 md:py-5">
           {/* Brand */}
           <a href="#fooldal" className="flex min-w-0 items-center gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-navy text-navy-foreground font-display font-bold text-lg shadow-navy-sm">
+            <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg font-display font-bold text-lg shadow-navy-sm ${logoBox}`}>
               F
             </div>
             <div className="min-w-0 leading-tight">
-              <div className="truncate font-display text-[15px] font-bold text-white sm:text-base">
+              <div className={`truncate font-display text-[15px] font-bold sm:text-base ${textMain}`}>
                 Fehérvári Szigeteléstechnikai
               </div>
-              <div className="truncate text-[11px] font-medium tracking-wider uppercase text-white/70 sm:text-xs">
+              <div className={`truncate text-[11px] font-medium tracking-wider uppercase sm:text-xs ${textMuted}`}>
                 Kft. · Székesfehérvár
               </div>
             </div>
