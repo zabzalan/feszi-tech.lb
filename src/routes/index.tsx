@@ -1251,14 +1251,32 @@ function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative bg-navy text-white">
-      <div className="container-page py-14">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
+      />
+      <div className="container-page py-14 md:py-16">
+        <div className="grid gap-10 md:grid-cols-3 md:gap-12">
+          {/* Brand */}
+          <div>
+            <div className="font-display text-lg font-bold leading-tight tracking-tight text-white">
+              Fehérvári Szigeteléstechnikai
+              <span className="block text-sm font-semibold tracking-[0.18em] text-ice-blue">
+                KFT.
+              </span>
+            </div>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ice-blue/80">
+              Építőipari és ipari szolgáltatások egy kézben — Székesfehérvárról
+              országosan és nemzetközi projekteken.
+            </p>
+          </div>
+
           {/* Quick nav */}
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-ice-blue">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ice-blue">
               Oldaltérkép
             </div>
-            <ul className="mt-4 space-y-2 text-sm">
+            <ul className="mt-5 space-y-2.5 text-sm">
               <FooterLink href="#fooldal">Főoldal</FooterLink>
               <FooterLink href="#rolunk">Rólunk</FooterLink>
               <FooterLink href="#szolgaltatasok">Szolgáltatások</FooterLink>
@@ -1269,23 +1287,30 @@ function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-ice-blue">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ice-blue">
               Kapcsolat
             </div>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li className="flex items-start gap-2">
+            <ul className="mt-5 space-y-3.5 text-sm text-ice-blue/90">
+              <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-ice-blue" />
-                <span>8000 Székesfehérvár,<br />Forgó utca 13.</span>
+                <span className="leading-relaxed">
+                  8000 Székesfehérvár,
+                  <br />
+                  Forgó utca 13.
+                </span>
               </li>
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-ice-blue" />
-                <a href="tel:+36301231234" className="hover:text-white">
+                <a href="tel:+36301231234" className="transition-colors hover:text-white">
                   +36 30 123 1234
                 </a>
               </li>
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-ice-blue" />
-                <a href="mailto:zabzalan@gmail.com" className="hover:text-white break-all">
+                <a
+                  href="mailto:zabzalan@gmail.com"
+                  className="break-all transition-colors hover:text-white"
+                >
                   zabzalan@gmail.com
                 </a>
               </li>
@@ -1293,15 +1318,15 @@ function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-ice-blue/80 sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-ice-blue/70 sm:flex-row sm:items-center">
           <div>
             © {year} Fehérvári Szigeteléstechnikai Kft. — Minden jog fenntartva.
           </div>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <a href="#impresszum" className="hover:text-white">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <a href="#impresszum" className="transition-colors hover:text-white">
               Impresszum
             </a>
-            <a href="#adatkezeles" className="hover:text-white">
+            <a href="#adatkezeles" className="transition-colors hover:text-white">
               Adatkezelési tájékoztató
             </a>
           </div>
@@ -1310,6 +1335,7 @@ function SiteFooter() {
     </footer>
   );
 }
+
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
