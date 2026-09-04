@@ -1252,7 +1252,21 @@ function SiteFooter() {
   return (
     <footer className="relative bg-navy text-white">
       <div className="container-page py-14">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          {/* Brand + company */}
+          <div>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center font-display text-base font-bold leading-tight">
+                Fehérvári Szigeteléstechnikai Kft.
+              </div>
+            </div>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-ice-blue/90">
+              2014 óta biztosítunk magas színvonalú építőmesteri, villamossági és
+              ipari szolgáltatásokat – Székesfehérvárról, Fejér megyében,
+              országosan és nemzetközi projekteken egyaránt.
+            </p>
+          </div>
+
           {/* Quick nav */}
           <div>
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-ice-blue">
@@ -1288,6 +1302,41 @@ function SiteFooter() {
                 <a href="mailto:zabzalan@gmail.com" className="hover:text-white break-all">
                   zabzalan@gmail.com
                 </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company data */}
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-ice-blue">
+              Cégadatok
+            </div>
+            <ul className="mt-4 space-y-2 text-sm text-ice-blue/90">
+              <li>
+                <span className="text-white/70">Cégjegyzékszám:</span>
+                <br />
+                <span className="font-semibold text-white">07-09-024525</span>
+              </li>
+              <li>
+                <span className="text-white/70">Adószám:</span>
+                <br />
+                <span className="font-semibold text-white">24986625-2-07</span>
+              </li>
+              <li>
+                <span className="text-white/70">Alapítva:</span>{" "}
+                <span className="font-semibold text-white">2014. 03. 18.</span>
+              </li>
+              <li>
+                <span className="text-white/70">TEÁOR:</span>{" "}
+                <span className="font-semibold text-white">4399</span> – egyéb
+                speciális szaképítés
+              </li>
+              <li>
+                <span className="text-white/70">Ügyvezetők:</span>
+                <br />
+                <span className="font-semibold text-white">
+                  Auth István László, Varga Zsóka
+                </span>
               </li>
             </ul>
           </div>
